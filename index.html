@@ -3,41 +3,506 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>vdrenkov | Developer Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <title>Valentin Drenkov | Dev Portfolio</title>
+
+    <meta
+      name="description"
+      content="Explore the portfolio of Valentin Drenkov — software engineer crafting Spring Boot backends, React frontends, and blockchain research prototypes."
+    />
+    <meta name="author" content="Valentin Drenkov" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vdrenkov.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="vdrenkov.dev" />
+    <meta
+      property="og:title"
+      content="Valentin Drenkov | Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Projects, skills, and experience from a Spring Boot & React engineer exploring blockchain, cloud, and developer tooling."
+    />
+    <meta property="og:url" content="https://vdrenkov.dev/" />
+    <meta property="og:image" content="https://vdrenkov.dev/og-cover.jpg" />
+    <meta
+      property="og:image:alt"
+      content="Valentin Drenkov — Developer Portfolio Cover"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Valentin Drenkov | Developer Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Software engineering projects across Java, Spring Boot, JavaScript, React, and blockchain research."
+    />
+    <meta name="twitter:image" content="https://vdrenkov.dev/og-cover.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Valentin Drenkov — Developer Portfolio Cover"
+    />
+
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
     <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <script defer src="script.js"></script>
   </head>
 
   <body>
     <header>
-      <nav>
-        <div><strong>vdrenkov.dev</strong></div>
-        <div>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contacts</a>
-        </div>
+      <nav aria-label="Primary">
+        <a href="#hero" aria-label="Home">
+          <img
+            src="public/developer-logo.png"
+            alt="Developer logo"
+            class="dev-logo"
+        /></a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#tech-stack">Tech Stack</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
       </nav>
     </header>
 
-    <section>
-      <h1>Hi, I'm Valentin Drenkov.</h1>
-      <p>Software Engineer | Blockchain Enthusiast | Tech Explorer</p>
-      <a href="#projects">⬇ Check out my work ⬇</a>
-    </section>
+    <main>
+      <section id="hero">
+        <h1>Hi, I'm Valentin Drenkov.</h1>
+        <p>Software Engineer | Blockchain Enthusiast | Tech Explorer</p>
+        <a href="#projects">Check out my work</a>
+      </section>
 
-    <section id="projects">projects</section>
+      <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>
+          I’m Valentin, a software engineer focused on building clean, reliable
+          systems that don’t crumble under real-world use. My work ranges from
+          enterprise-level Spring Boot services to modern React interfaces and
+          hands-on blockchain research. I like solving messy problems,
+          automating what can be automated, and sharing practical lessons with
+          whoever’s listening. I document, review, and communicate async — so
+          teams move fast without tripping over each other.
+        </p>
+      </section>
 
-    <section id="skills">skills</section>
+      <section id="tech-stack" class="section">
+        <h2>Tech Stack</h2>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">☕</span>
+            <span class="tech-label">Java</span>
+          </div>
 
-    <section id="experience">experience</section>
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">🌱</span>
+            <span class="tech-label">Spring / Spring Boot</span>
+          </div>
 
-    <section id="about">about</section>
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">⚡</span>
+            <span class="tech-label">JavaScript</span>
+          </div>
 
-    <section id="contacts">contacts</section>
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">⚛️</span>
+            <span class="tech-label">React</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">🐘</span>
+            <span class="tech-label">Relational Databases</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">🍃</span>
+            <span class="tech-label">MongoDB</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">🐳</span>
+            <span class="tech-label">Docker & Kubernetes</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">☁️</span>
+            <span class="tech-label">Amazon Web Services</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">🔄</span>
+            <span class="tech-label">CI/CD Pipelines</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">🔀</span>
+            <span class="tech-label">Git</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">⚙️</span>
+            <span class="tech-label">Maven & Gradle</span>
+          </div>
+
+          <div class="tech-item">
+            <span class="tech-icon" aria-hidden="true">🔗</span>
+            <span class="tech-label">Blockchain & Web3</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects">
+          <div class="card">
+            <h3>Fast React Pizza</h3>
+            <p>
+              Single-page ordering experience with menu browsing, cart
+              management, and order tracking backed by the public React Fast
+              Pizza API.
+            </p>
+            <p>
+              <strong>Tech:</strong> React 18 · Vite · Redux Toolkit · Tailwind
+              CSS
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/vdrenkov/fast-react-pizza"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a
+                href="https://fast-react-pizza-vdrenkov.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Moviedux</h3>
+            <p>
+              Personal movie catalogue with searching, filtering, and watchlist
+              management designed for fast recall of favourite titles.
+            </p>
+            <p><strong>Tech:</strong> React · React Router · Custom Hooks</p>
+            <div class="project-links">
+              <a
+                href="https://github.com/vdrenkov/moviedux"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a
+                href="https://moviedux-vdrenkov.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Omnifood</h3>
+            <p>
+              Responsive marketing site for a fictional food subscription brand,
+              showcasing pricing, testimonials, and conversion-focused CTAs.
+            </p>
+            <p>
+              <strong>Tech:</strong> HTML · CSS (Flexbox & Grid) · Vanilla
+              JavaScript
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/vdrenkov/omnifood"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a
+                href="https://omnifood-vdrenkov.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Spring Library Management</h3>
+            <p>
+              RESTful backend for managing library catalogues, role-secured
+              users and their orders, completed with DTO mapping, ModelMapper
+              conversions, and seeded data for instant evaluation.
+            </p>
+            <p>
+              <strong>Tech:</strong> Java 11 · Spring Boot · Spring Security ·
+              MySQL/H2
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/vdrenkov/spring-library-management"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a aria-disabled="true" tabindex="-1">Live Demo</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>World Wise</h3>
+            <p>
+              Interactive travel log that plots visited cities on a map and
+              persists your notes, built to explore geolocation and state
+              management patterns.
+            </p>
+            <p><strong>Tech:</strong> React · React Router · Leaflet · Vite</p>
+            <div class="project-links">
+              <a
+                href="https://github.com/vdrenkov/world-wise"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a aria-disabled="true" tabindex="-1">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="projects-note">
+          Interested in some of my other projects? Follow my work on
+          <a
+            href="https://github.com/vdrenkov"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >.
+        </p>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="experience">
+          <div class="card">
+            <h3>DXC Technology</h3>
+            <p>
+              <em
+                >Junior Software Developer ·
+                <time datetime="2023-09">Sep 2023</time> –
+                <span class="in-progress">Present</span> · Remote</em
+              >
+            </p>
+            <ul>
+              <li>
+                Built a web application with Spring Boot and React, integrating
+                REST APIs and PostgreSQL, and applying automated testing with
+                JUnit/Mockito/Selenium, code quality tooling (Sonar), and CI/CD
+                pipelines (Jenkins/GitLab).
+              </li>
+              <li>
+                Extracted and split a heavy component into dedicated Spring Boot
+                microservices (Java 21) using MongoDB, Docker, AWS S3, OpenAPI
+                and CI/CD tooling (Bamboo/Bitbucket), improving system
+                performance, reliability and scalability.
+              </li>
+              <li>
+                Led R&D work on a proof-of-concept tool from exploration to
+                initial prototype.
+              </li>
+              <li>
+                Maintained and extended a legacy Java system running on Tomcat
+                with JSPs.
+              </li>
+              <li>
+                Collaborated within an Agile delivery team, adapting to shifting
+                scope and applying existing migration playbooks while proposing
+                technical alternatives where gaps were identified.
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Scalefocus Academy</h3>
+            <p>
+              <em
+                >Software Engineering Intern ·
+                <time datetime="2023-03">Mar 2023</time> –
+                <time datetime="2023-06">Jun 2023</time> · Remote</em
+              >
+            </p>
+            <ul>
+              <li>
+                Delivered backend features in an Agile squad using Java 17,
+                Spring Boot, SOLID/OOP practices, Git, and build tooling with
+                clean exception handling.
+              </li>
+              <li>
+                Worked across JDBC/Hibernate persistence layers and REST APIs
+                with automated tests to validate data flows.
+              </li>
+              <li>
+                Fully implemented the application’s Spring Security layer,
+                including JWT-based authentication, CSRF protection, role-based
+                authorization, and secured REST endpoints.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="card">
+            <strong>Programming Languages</strong>
+            <ul class="skill-list">
+              <li><strong>Java</strong> <em>(primary)</em></li>
+              <li><strong>JavaScript</strong> <em>(secondary)</em></li>
+              <li>C / C++ / C# / Python fundamentals</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Frameworks & Libraries</strong>
+            <ul class="skill-list">
+              <li><strong>Spring & Spring Boot</strong></li>
+              <li>HTML5 & CSS3</li>
+              <li>React</li>
+              <li>Exposure to Angular, Next.js, Node.js</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Data & Persistence</strong>
+            <ul class="skill-list">
+              <li>Relational databases: PostgreSQL, MySQL, Oracle</li>
+              <li>Non-relational databases: MongoDB</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Cloud, DevOps & Tooling</strong>
+            <ul class="skill-list">
+              <li>Docker & containerised development workflows</li>
+              <li>Kubernetes</li>
+              <li>Amazon Web Services</li>
+              <li>Jenkins & GitHub Actions CI/CD automation</li>
+              <li>Git</li>
+              <li>Maven & Gradle</li>
+              <li>SonarQube code quality</li>
+              <li>OpenAPI/Swagger specs</li>
+              <li>AI-assisted coding workflows</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Collaboration & Practices</strong>
+            <ul class="skill-list">
+              <li>Clear docs and async communication</li>
+              <li>Ownership end-to-end (plan → ship → iterate)</li>
+              <li>Pragmatic code reviews and mentoring</li>
+              <li>Continuous improvement and automation mindset</li>
+              <li>Security and quality by default</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Blockchain & Web3</strong>
+            <ul class="skill-list">
+              <li>Blockchain & crypto foundations</li>
+              <li>DeFi mechanics, L2 research, on-chain analytics</li>
+              <li>Crypto data ETL & backtesting (Python)</li>
+              <li>Solidity fundamentals & smart contract prototyping</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <h2>Education</h2>
+        <div class="education">
+          <div class="card">
+            <h3>Technical University of Sofia</h3>
+            <p><em>BSc · Computer and Software Engineering</em></p>
+            <p class="edu-meta">
+              Sofia, Bulgaria · Graduated
+              <time datetime="2022">2022</time>
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Technical University of Sofia</h3>
+            <p><em>MSc · Computer and Software Engineering</em></p>
+            <p class="edu-meta">
+              Sofia, Bulgaria · Graduated
+              <time datetime="2023">2023</time>
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Technical University of Sofia</h3>
+            <p><em>PhD · Blockchain Technologies</em></p>
+            <p class="edu-meta">
+              Sofia, Bulgaria · <span class="in-progress">In progress</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" class="section">
+        <h2>Contacts</h2>
+        <p>Let’s connect! You can reach me at:</p>
+        <address class="contact-links">
+          <a
+            href="mailto:drenkovvv@gmail.com"
+            aria-label="Email Valentin Drenkov"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.2l8 5 8-5V6H4zm16 2.3-7.55 4.72a1 1 0 0 1-1.1 0L4 8.3V18h16V8.3z"
+              />
+            </svg>
+            <span class="sr-only">Email</span>
+          </a>
+          <a href="https://github.com/vdrenkov" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M12 .5C5.65 .5 .5 5.65 .5 12a11.5 11.5 0 0 0 7.86 10.91c.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.72.08-.7.08-.7 1.18.08 1.8 1.22 1.8 1.22 1.04 1.78 2.73 1.27 3.4.97.11-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.2-3.09-.12-.29-.52-1.45.11-3.02 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.82 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.57.23 2.73.11 3.02.75.8 1.2 1.83 1.2 3.09 0 4.42-2.68 5.39-5.23 5.68.42.37.79 1.1.79 2.22 0 1.6-.01 2.88-.01 3.27 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"
+              />
+            </svg>
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a
+            href="https://linkedin.com/in/vdrenkov"
+            aria-label="LinkedIn profile"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M20.45 3H3.55a.55.55 0 0 0-.55.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3zM8.34 18.34H5.67V9.67h2.67v8.67zM7 8.45a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zm11.34 9.89h-2.66v-4.5c0-1.07-.02-2.45-1.49-2.45-1.5 0-1.73 1.17-1.73 2.37v4.58H9.8V9.67h2.55v1.18h.04c.36-.68 1.24-1.4 2.56-1.4 2.74 0 3.24 1.8 3.24 4.15v4.74z"
+              />
+            </svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </address>
+      </section>
+    </main>
 
     <footer>
       <p>© <span id="year"></span> Valentin Drenkov. Built with 💻 and ☕.</p>
