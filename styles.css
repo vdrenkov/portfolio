@@ -1,0 +1,206 @@
+/* ------------------   STYLING RULES   ------------------
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Whitespace (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+- Font weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights
+Default:
+
+- Letter spacing
+
+- Shadow
+
+- Border-radius
+*/
+
+:root {
+  --font-family: "Inter", "sans-serif";
+
+  --color-bg-900: #050814;
+  --color-bg-800: #0b1426;
+  --color-surface: rgba(8, 13, 28, 0.82);
+  --color-surface-strong: rgba(8, 13, 28, 0.92);
+  --color-border: rgba(99, 102, 241, 0.28);
+  --color-border-strong: rgba(99, 102, 241, 0.45);
+
+  --color-text-primary: #eef2ff;
+  --color-text-secondary: rgba(219, 227, 255, 0.78);
+  --color-text-muted: rgba(177, 191, 255, 0.6);
+
+  --color-accent: #6366f1;
+  --color-accent-soft: rgba(99, 102, 241, 0.16);
+  --color-overlay-soft: rgba(99, 102, 241, 0.12);
+  --color-overlay-medium: rgba(99, 102, 241, 0.18);
+  --color-disabled-border: rgba(99, 102, 241, 0.22);
+  --color-disabled-fill: rgba(99, 102, 241, 0.1);
+  --color-header-backdrop: rgba(5, 8, 20, 0.78);
+
+  --color-action: #14b8a6;
+  --color-action-strong: #0ea5e9;
+  --color-action-soft: rgba(14, 184, 194, 0.16);
+  --color-action-border: rgba(14, 184, 194, 0.42);
+  --color-action-shadow: rgba(14, 165, 233, 0.45);
+
+  --shadow-card: 0 18px 40px -20px rgba(3, 5, 18, 0.75);
+  --shadow-hover: 0 22px 45px -28px rgba(99, 102, 241, 0.45);
+}
+
+/* General styling */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+html {
+  /* Percentage of user's browser font-size setting.
+    Set to 10px for easier calculations.
+    10px / 16px = 0.625 = 62.5%
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  color: var(--color-text-primary);
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(
+      circle at 15% -10%,
+      var(--color-accent-soft),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 85% 0%,
+      var(--color-overlay-soft),
+      transparent 50%
+    ),
+    linear-gradient(
+      160deg,
+      var(--color-bg-900) 0%,
+      var(--color-bg-800) 65%,
+      var(--color-bg-900) 100%
+    );
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+      circle at top right,
+      var(--color-accent-soft),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      var(--color-overlay-medium),
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Header styling */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(5px);
+  background: var(--color-header-backdrop);
+  border-bottom: 1px solid var(--color-border);
+
+  height: 10vh;
+  padding: 0 5vw;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.main-nav a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all 0.2s;
+  background-color: transparent;
+}
+
+.main-nav a:hover {
+  color: var(--color-text-primary);
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.logo-dev {
+  color: #fff;
+  background: #000;
+  padding: 0.25rem 0;
+}
+
+.logo-eloper {
+  color: #000;
+  background-color: var(--color-accent);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.8rem;
+  gap: 2rem;
+  letter-spacing: 0.015rem;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--color-text-primary);
+  background-color: var(--color-action-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -20px var(--color-action-shadow);
+}
+
+.nav-links a:focus-visible {
+  outline: 2px solid var(--color-action);
+  outline-offset: 4px;
+  color: var(--color-text-primary);
+  background-color: var(--color-action-soft);
+  box-shadow: 0 0 0 6px var(--color-action-soft);
+}
+
+/* Main styling */
+.main-container {
+  margin: 5vh 5vw;
+}
+
+/* Footer styling */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 10vh;
+  font-size: 2rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}

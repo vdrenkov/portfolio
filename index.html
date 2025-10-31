@@ -60,14 +60,14 @@
   </head>
 
   <body>
-    <header>
-      <nav aria-label="Primary">
+    <header class="main-header">
+      <nav aria-label="Primary" class="main-nav">
         <a href="#hero" aria-label="Home">
-          <img
-            src="public/developer-logo.png"
-            alt="Developer logo"
-            class="dev-logo"
-        /></a>
+          <div class="logo">
+            <span class="logo-dev">Dev</span
+            ><span class="logo-eloper">eloper</span>
+          </div>
+        </a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#tech-stack">Tech Stack</a></li>
@@ -80,7 +80,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="main-container">
       <section id="hero">
         <h1>Hi, I'm Valentin Drenkov.</h1>
         <p>Software Engineer | Blockchain Enthusiast | Tech Explorer</p>
@@ -504,7 +504,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="footer">
       <p>© <span id="year"></span> Valentin Drenkov. Built with 💻 and ☕.</p>
     </footer>
   </body>
