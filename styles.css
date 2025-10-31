@@ -121,8 +121,9 @@ body::before {
   background: var(--color-header-backdrop);
   border-bottom: 1px solid var(--color-border);
 
-  height: 10vh;
+  height: 11vh;
   padding: 0 5vw;
+  font-weight: 700;
 }
 
 .main-nav {
@@ -144,13 +145,12 @@ body::before {
 }
 
 .logo {
-  font-size: 2.4rem;
-  font-weight: 700;
+  font-size: 3rem;
 }
 
 .logo-dev {
   color: #fff;
-  background: #000;
+  background: var(--color-header-backdrop);
   padding: 0.25rem 0;
 }
 
@@ -163,28 +163,40 @@ body::before {
 
 .nav-links {
   list-style: none;
+
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+}
+
+.nav-links a {
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  font-size: 1.8rem;
-  gap: 2rem;
-  letter-spacing: 0.015rem;
+  justify-content: space-between;
+  padding: 0.6rem 0 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--color-accent);
+  background-color: transparent;
+  font-size: 2rem;
+  letter-spacing: 0.015em;
+  transition: all 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
   color: var(--color-text-primary);
   background-color: var(--color-action-soft);
-  transform: translateY(-2px);
+  border-color: var(--color-accent);
   box-shadow: 0 14px 28px -20px var(--color-action-shadow);
 }
 
 .nav-links a:focus-visible {
-  outline: 2px solid var(--color-action);
+  outline: 2px solid var(--color-accent);
   outline-offset: 4px;
   color: var(--color-text-primary);
   background-color: var(--color-action-soft);
+  border-color: var(--color-accent);
   box-shadow: 0 0 0 6px var(--color-action-soft);
 }
 
