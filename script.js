@@ -21,9 +21,13 @@ const clearActiveLinks = () => {
   }
 };
 
+const ACTIVATION_GAP = 12;
 const isPastFirstSection = () => {
   if (!firstSection) return false;
-  return firstSection.getBoundingClientRect().top <= getHeaderHeight() + 1;
+  return (
+    firstSection.getBoundingClientRect().top <=
+    getHeaderHeight() + ACTIVATION_GAP
+  );
 };
 
 const setActiveLink = (id) => {
@@ -46,7 +50,7 @@ if (sections.length) {
     let activeId = null;
     for (const { target } of sections) {
       const top = target.getBoundingClientRect().top - getHeaderHeight();
-      if (top <= 1) activeId = target.id;
+      if (top <= ACTIVATION_GAP) activeId = target.id;
     }
     return activeId;
   };
@@ -69,8 +73,23 @@ if (sections.length) {
     });
   }
 
-  globalThis.addEventListener("scroll", updateActiveByScroll, { passive: true });
+  globalThis.addEventListener("scroll", updateActiveByScroll, {
+    passive: true,
+  });
   globalThis.addEventListener("resize", updateActiveByScroll);
+}
+
+// Scroll to top when clicking the developer logo (Home)
+const homeAnchor =
+  // document.querySelector('.main-nav > a[aria-label="Home"]') ||
+  document.querySelector(".logo");
+
+if (homeAnchor) {
+  homeAnchor.addEventListener("click", (e) => {
+    e.preventDefault();
+    clearActiveLinks();
+    globalThis.scrollTo({ top: 0, behavior: "smooth" });
+  });
 }
 
 // Set the current year in the footer
