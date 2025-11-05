@@ -73,10 +73,6 @@ html {
   overflow-x: hidden;
   color: var(--color-text-primary);
 }
-/* Offset in-page anchor scrolling for sticky header */
-section[id]:not(#hero) {
-  scroll-margin-top: calc(12vh);
-}
 
 body {
   min-height: 100vh;
@@ -123,6 +119,15 @@ h2 {
   margin-bottom: 2rem;
   letter-spacing: 0.015em;
   text-align: center;
+}
+
+section {
+  margin-top: 40vh;
+}
+
+/* Offset in-page anchor scrolling for sticky header */
+section[id]:not(#hero) {
+  scroll-margin-top: calc(12vh);
 }
 
 /* Header styling */
@@ -229,6 +234,11 @@ h2 {
   justify-content: center;
   height: 89vh;
   text-align: center;
+  margin-top: 0;
+}
+
+.hero section {
+  margin: 0;
 }
 
 .hero h1 {
@@ -274,9 +284,12 @@ h2 {
 .about {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   text-align: left;
-  height: 100vh;
+}
+
+.about section {
+  margin: 0;
 }
 
 .about p {
@@ -290,7 +303,6 @@ h2 {
 .tech-stack {
   display: flex;
   align-items: center;
-  height: 100vh;
   font-size: 4.4rem;
 }
 
@@ -337,7 +349,6 @@ h2 {
 .projects {
   display: flex;
   align-items: center;
-  height: 100vh;
 }
 
 .project-cards {
