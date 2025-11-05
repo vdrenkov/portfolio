@@ -210,7 +210,7 @@ body::before {
 }
 
 /* Hero section styling */
-.hero-container {
+.hero {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -218,20 +218,20 @@ body::before {
   text-align: center;
 }
 
-.hero-container h1 {
+.hero h1 {
   font-size: 6.2rem;
   font-weight: 700;
   letter-spacing: 0.015em;
   margin-bottom: 1.1rem;
 }
 
-.hero-container p {
+.hero p {
   font-size: 2rem;
   color: var(--color-text-secondary);
   margin-bottom: 6rem;
 }
 
-.hero-container a {
+.hero a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -252,7 +252,7 @@ body::before {
   transition: all 0.2s;
 }
 
-.hero-container a:hover {
+.hero a:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 32px -18px var(--color-action-shadow);
 }
@@ -261,9 +261,9 @@ body::before {
 .about {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   text-align: left;
-  margin: 25vh 0;
+  height: 100vh;
 }
 
 .about h2 {
@@ -278,6 +278,57 @@ body::before {
   max-width: 60ch;
   font-size: 2rem;
   line-height: 1.5;
+}
+
+/* Tech stack section styling */
+.tech-stack {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  font-size: 4.4rem;
+}
+
+.tech-stack h2 {
+  margin-bottom: 2rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.95rem;
+  padding: 1.7rem 1.4rem;
+  border-radius: 1.1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-strong);
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.tech-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-strong);
+  box-shadow: 0 16px 35px -24px var(--color-accent);
+}
+
+.tech-icon {
+  font-size: 3.6rem;
+  filter: drop-shadow(0 8px 18px var(--color-accent-soft));
+}
+
+.tech-label {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
 }
 
 /* Footer styling */
