@@ -19,8 +19,7 @@ This repository hosts the source code for [vdrenkov.dev](https://vdrenkov.dev) �
 ├── script.js        # Small helpers
 ├── CNAME            # Custom domain configuration for GitHub Pages
 ├── public/
-│   ├── developer-logo.png
-│   └── favicon.ico
+│   ├── favicon.ico
 └── .gitignore
 ```
 
