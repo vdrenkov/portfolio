@@ -117,7 +117,8 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   background: var(--color-header-backdrop);
   border-bottom: 1px solid var(--color-border);
 
@@ -162,13 +163,10 @@ body::before {
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  padding: 0;
-  margin: 0;
+  list-style: none;
 }
 
 .nav-links li {
@@ -182,7 +180,6 @@ body::before {
   padding: 0.6rem 1.2rem;
   border-radius: 999px;
   border: 1px solid transparent;
-  color: var(--color-accent);
   background-color: transparent;
   font-size: 2rem;
   letter-spacing: 0.015em;
@@ -209,7 +206,55 @@ body::before {
 
 /* Main styling */
 .main-container {
-  margin: 5vh 5vw;
+  margin: 0 5vw;
+}
+
+/* Hero section styling */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 89vh;
+  text-align: center;
+}
+
+.hero-container h1 {
+  font-size: 6.2rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  margin-bottom: 1.1rem;
+}
+
+.hero-container p {
+  font-size: 2rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 6rem;
+}
+
+.hero-container a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 1.6rem 2.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 2rem;
+  text-decoration: none;
+  letter-spacing: 0.015em;
+  color: var(--color-text-primary);
+  background: linear-gradient(
+    135deg,
+    var(--color-action),
+    var(--color-action-strong)
+  );
+  box-shadow: 0 16px 30px -18px var(--color-action-shadow);
+  transition: all 0.2s;
+}
+
+.hero-container a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px -18px var(--color-action-shadow);
 }
 
 /* Footer styling */
