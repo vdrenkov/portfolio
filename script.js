@@ -9,7 +9,33 @@ const sections = navLinks
   })
   .filter(Boolean);
 
+const header = document.querySelector(".main-header");
+const heroSection = document.getElementById("hero");
+const firstSection = sections.length ? sections[0].target : null;
+
+const getHeaderHeight = () =>
+  header ? header.getBoundingClientRect().height : 0;
+
+const clearActiveLinks = () => {
+  for (const link of navLinks) {
+    link.removeAttribute("aria-current");
+  }
+};
+
+const isHeroVisible = () => {
+  if (!heroSection) return false;
+  const rect = heroSection.getBoundingClientRect();
+  return rect.bottom - getHeaderHeight() > 0;
+};
+
+const isPastHero = () => !isHeroVisible();
+
 const setActiveLink = (id) => {
+  if (!isPastHero()) {
+    clearActiveLinks();
+    return;
+  }
+
   for (const link of navLinks) {
     if (link.hash === `#${id}`) {
       link.setAttribute("aria-current", "page");
@@ -20,7 +46,7 @@ const setActiveLink = (id) => {
 };
 
 if (sections.length) {
-  const initialTarget = (() => {
+  const initialTargetId = (() => {
     if (globalThis.location.hash) {
       const hashId = globalThis.location.hash.substring(1);
       if (sections.some(({ target }) => target.id === hashId)) {
@@ -30,11 +56,17 @@ if (sections.length) {
     return sections[0].target.id;
   })();
 
-  setActiveLink(initialTarget);
+  if (isPastHero()) setActiveLink(initialTargetId);
+  else clearActiveLinks();
 
   if ("IntersectionObserver" in globalThis) {
     const observer = new IntersectionObserver(
       (entries) => {
+        if (!isPastHero()) {
+          clearActiveLinks();
+          return;
+        }
+
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -68,9 +100,18 @@ if (sections.length) {
   for (const link of navLinks) {
     link.addEventListener("click", () => {
       const id = link.hash.substring(1);
-      setActiveLink(id);
+      globalThis.requestAnimationFrame(() => setActiveLink(id));
     });
   }
+
+  const resetIfHeroVisible = () => {
+    if (!isPastHero()) {
+      clearActiveLinks();
+    }
+  };
+
+  globalThis.addEventListener("scroll", resetIfHeroVisible, { passive: true });
+  globalThis.addEventListener("resize", resetIfHeroVisible);
 }
 
 // Set the current year in the footer
