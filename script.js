@@ -6,9 +6,11 @@ function clearActiveLinks() {
   }
 }
 
+let lastActiveId = null;
 function setActiveLinkBySectionId(id) {
   if (id === "hero") {
     clearActiveLinks();
+    lastActiveId = null;
     return;
   }
 
@@ -20,6 +22,7 @@ function setActiveLinkBySectionId(id) {
 
   clearActiveLinks();
   link.setAttribute("aria-current", "page");
+  lastActiveId = id;
 }
 
 function getHeaderHeight() {
@@ -69,15 +72,15 @@ if (sections.length) {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      // Find the most visible intersecting section
       const visible = entries
         .filter((en) => en.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
       if (visible) {
         setActiveLinkBySectionId(visible.target.id);
+      } else if (lastActiveId) {
+        setActiveLinkBySectionId(lastActiveId);
       } else {
-        // If nothing is intersecting, we are above first section — clear all
         clearActiveLinks();
       }
     },
