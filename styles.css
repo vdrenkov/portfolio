@@ -328,6 +328,15 @@ section[id]:not(#hero) {
   width: 100%;
   transition: all 0.2s;
 }
+/* Prevent copying/selecting Tech Stack icons and labels */
+.tech-item,
+.tech-item * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 .tech-item:hover {
   transform: translateY(-4px);
@@ -351,10 +360,6 @@ section[id]:not(#hero) {
 .projects {
   display: flex;
   align-items: center;
-}
-
-.projects h2 {
-  /* margin: 4rem 0; */
 }
 
 .project-row {
