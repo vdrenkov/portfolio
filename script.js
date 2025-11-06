@@ -1,99 +1,109 @@
-// Change active navigation link
-const navLinks = Array.from(
-  document.querySelectorAll(".nav-links a[href^='#']")
-);
-const sections = navLinks
-  .map((link) => {
-    const target = document.querySelector(link.hash);
-    return target ? { link, target } : null;
-  })
-  .filter(Boolean);
-
-const header = document.querySelector(".main-header");
-const firstSection = sections.length ? sections[0].target : null;
-
-const getHeaderHeight = () =>
-  header ? header.getBoundingClientRect().height : 0;
-
-const clearActiveLinks = () => {
-  for (const link of navLinks) {
-    link.removeAttribute("aria-current");
+// Helpers
+function clearActiveLinks() {
+  const navLinks = document.querySelectorAll(".nav-links a[aria-current]");
+  for (const navLink of navLinks) {
+    navLink.removeAttribute("aria-current");
   }
-};
+}
 
-const ACTIVATION_GAP = 12;
-const isPastFirstSection = () => {
-  if (!firstSection) return false;
-  return (
-    firstSection.getBoundingClientRect().top <=
-    getHeaderHeight() + ACTIVATION_GAP
-  );
-};
-
-const setActiveLink = (id) => {
-  if (!isPastFirstSection()) {
+function setActiveLinkBySectionId(id) {
+  if (id === "hero") {
     clearActiveLinks();
     return;
   }
 
-  for (const link of navLinks) {
-    if (link.hash === `#${id}`) {
-      link.setAttribute("aria-current", "page");
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  }
-};
+  const link = document.querySelector(
+    `.nav-links a[href="#${CSS.escape(id)}"]`
+  );
 
-if (sections.length) {
-  const getCurrentSectionId = () => {
-    let activeId = null;
-    for (const { target } of sections) {
-      const top = target.getBoundingClientRect().top - getHeaderHeight();
-      if (top <= ACTIVATION_GAP) activeId = target.id;
-    }
-    return activeId;
-  };
+  if (!link) return;
 
-  const updateActiveByScroll = () => {
-    if (!isPastFirstSection()) {
-      clearActiveLinks();
-      return;
-    }
-    const currentId = getCurrentSectionId();
-    if (currentId) setActiveLink(currentId);
-  };
-
-  // Initial paint
-  updateActiveByScroll();
-
-  for (const link of navLinks) {
-    link.addEventListener("click", () => {
-      globalThis.requestAnimationFrame(updateActiveByScroll);
-    });
-  }
-
-  globalThis.addEventListener("scroll", updateActiveByScroll, {
-    passive: true,
-  });
-  globalThis.addEventListener("resize", updateActiveByScroll);
+  clearActiveLinks();
+  link.setAttribute("aria-current", "page");
 }
 
-// Scroll to top when clicking the developer logo (Home)
-const homeAnchor =
-  // document.querySelector('.main-nav > a[aria-label="Home"]') ||
-  document.querySelector(".logo");
+function getHeaderHeight() {
+  const header = document.querySelector(".main-header");
+  return header ? header.offsetHeight : 0;
+}
 
+// Smooth scroll for in-page links
+const inPageLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+for (const inPageLink of inPageLinks) {
+  inPageLink.addEventListener("click", (event) => {
+    const id = inPageLink.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    setActiveLinkBySectionId(id);
+    history.replaceState(null, "", `#${id}`);
+  });
+}
+
+// Scroll-to-top for the logo
+const homeAnchor = document.querySelector(".logo");
 if (homeAnchor) {
-  homeAnchor.addEventListener("click", (e) => {
-    e.preventDefault();
+  homeAnchor.addEventListener("click", (event) => {
+    event.preventDefault();
+
     clearActiveLinks();
     globalThis.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", "#");
   });
 }
 
-// Set the current year in the footer
+// Footer year
 const yearElement = document.getElementById("year");
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
+}
+
+// Active link on section visibility
+const sections = Array.from(document.querySelectorAll("section[id]"));
+if (sections.length) {
+  const headerOffset = getHeaderHeight();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      // Find the most visible intersecting section
+      const visible = entries
+        .filter((en) => en.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) {
+        setActiveLinkBySectionId(visible.target.id);
+      } else {
+        // If nothing is intersecting, we are above first section — clear all
+        clearActiveLinks();
+      }
+    },
+    {
+      root: null,
+      rootMargin: `-${headerOffset}px 0px -40% 0px`,
+      threshold: [0.25, 0.5, 0.75],
+    }
+  );
+
+  for (const section of sections) {
+    observer.observe(section);
+  }
+
+  window.addEventListener("load", () => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      if (document.getElementById(id)) setActiveLinkBySectionId(id);
+    } else {
+      clearActiveLinks();
+    }
+  });
+
+  globalThis.addEventListener("hashchange", () => {
+    const id = location.hash.slice(1);
+    if (id === "hero" || !id) clearActiveLinks();
+    else if (document.getElementById(id)) setActiveLinkBySectionId(id);
+  });
 }
