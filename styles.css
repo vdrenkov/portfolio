@@ -141,7 +141,7 @@ section[id]:not(#hero) {
   border-bottom: 1px solid var(--color-border);
 
   height: 11vh;
-  padding: 0 5vw;
+  padding: 0 10vw;
   font-weight: 700;
 }
 
@@ -224,7 +224,7 @@ section[id]:not(#hero) {
 
 /* Main styling */
 .main-container {
-  margin: 0 5vw;
+  margin: 0 10vw;
 }
 
 /* Hero section styling */
