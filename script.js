@@ -69,6 +69,8 @@ if (yearElement) {
 const sections = Array.from(document.querySelectorAll("section[id]"));
 if (sections.length) {
   const headerOffset = getHeaderHeight();
+  const activationGap = Math.max(0, Math.round(window.innerHeight * 0.11) + 8);
+  const topOffset = Math.max(headerOffset, activationGap);
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -86,7 +88,7 @@ if (sections.length) {
     },
     {
       root: null,
-      rootMargin: `-${headerOffset}px 0px -40% 0px`,
+      rootMargin: `-${topOffset}px 0px -40% 0px`,
       threshold: [0.25, 0.5, 0.75],
     }
   );
