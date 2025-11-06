@@ -328,15 +328,6 @@ section[id]:not(#hero) {
   width: 100%;
   transition: all 0.2s;
 }
-/* Prevent copying/selecting Tech Stack icons and labels */
-.tech-item,
-.tech-item * {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 
 .tech-item:hover {
   transform: translateY(-4px);
@@ -356,7 +347,7 @@ section[id]:not(#hero) {
   text-align: center;
 }
 
-/* Project cards section styling */
+/* Projects section styling */
 .projects {
   display: flex;
   align-items: center;
@@ -539,7 +530,7 @@ section[id]:not(#hero) {
   box-shadow: var(--shadow-hover);
 }
 
-/* Projects section styling */
+/* Experience section styling */
 .card ul {
   list-style: none;
   display: grid;
@@ -569,6 +560,31 @@ section[id]:not(#hero) {
   font-size: 2rem;
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);
+}
+
+/* User manipulation prevention */
+.tech-item,
+.tech-item * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#projects .card,
+#projects .card * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#projects .project-links a,
+#projects .project-links a * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 /* Section panels for contrast */
