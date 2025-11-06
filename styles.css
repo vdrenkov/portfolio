@@ -553,26 +553,79 @@ section[id]:not(#hero) {
 /* Footer styling */
 .footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.2rem;
 
-  height: 11vh;
+  padding: 2.4rem 5vw;
   font-size: 2rem;
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);
 }
 
-/* User manipulation prevention */
-.tech-item,
-.tech-item * {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.footer section {
+  margin-top: 0;
 }
 
+.footer address {
+  font-style: normal;
+}
+
+.footer .contact-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer .contact-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.footer .contact-links a:hover,
+.footer .contact-links a:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--color-action-soft);
+  box-shadow: 0 10px 24px -18px var(--color-action-shadow);
+}
+
+.footer .contact-links svg {
+  width: 2.2rem;
+  height: 2.2rem;
+  fill: currentColor;
+}
+
+/* Visually-hidden utility for accessible labels */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* User manipulation prevention */
+.tech-item,
+.tech-item *,
 #projects .card,
-#projects .card * {
+#projects .card *,
+.footer .copyright {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
