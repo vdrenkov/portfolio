@@ -59,12 +59,6 @@ if (homeAnchor) {
   });
 }
 
-// Footer year
-const yearElement = document.getElementById("year");
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
-
 // Active link on section visibility
 const sections = Array.from(document.querySelectorAll("section[id]"));
 if (sections.length) {
@@ -111,4 +105,10 @@ if (sections.length) {
     if (id === "hero" || !id) clearActiveLinks();
     else if (document.getElementById(id)) setActiveLinkBySectionId(id);
   });
+}
+
+// Footer year
+const yearElement = document.getElementById("year");
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
 }
