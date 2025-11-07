@@ -3,7 +3,7 @@
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
 - Whitespace (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+2 / 4 / 8 / 12 / 16 / 18 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 - Font weights
 Default: 400
@@ -531,6 +531,61 @@ section[id]:not(#hero) {
 }
 
 /* Experience section styling */
+.experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* display: grid; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  gap: 4rem;
+  /* align-items: stretch; */
+}
+
+#experience .card {
+  background: var(--color-surface-strong);
+}
+
+#experience > .experience > .card {
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* title, meta, content */
+}
+
+#experience .card > p {
+  color: var(--color-text-muted);
+  text-align: center;
+  padding-bottom: 1.2rem;
+  grid-row: 2;
+}
+
+.in-progress {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.experience .card > h3 {
+  grid-row: 1;
+  font-size: 3.6rem;
+}
+
+#experience .card > ul {
+  grid-row: 3;
+}
+
+#experience .card ul li::before {
+  content: none;
+  display: none;
+}
+
 .card ul {
   list-style: none;
   display: grid;
@@ -625,6 +680,7 @@ section[id]:not(#hero) {
 .tech-item *,
 #projects .card,
 #projects .card *,
+.experience *,
 .footer .copyright {
   -webkit-user-select: none;
   -moz-user-select: none;
