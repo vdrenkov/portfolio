@@ -624,6 +624,26 @@ section[id]:not(#hero) {
   color: var(--color-text-primary);
 }
 
+/* Education section styling */
+#education > .education {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  align-items: stretch;
+  margin-bottom: 10rem;
+}
+
+#education > .education > .card {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* title, meta, (optional) extra */
+}
+
+#education .edu-meta {
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
 /* Footer styling */
 .footer {
   display: flex;
