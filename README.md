@@ -1,27 +1,42 @@
 # Valentin Drenkov — Developer Portfolio
 
-This repository hosts the source code for [vdrenkov.dev](https://vdrenkov.dev) — a single-page portfolio highlighting Valentin Drenkov’s software engineering work.
+Source code for [vdrenkov.dev](https://vdrenkov.dev) — a single‑page portfolio showcasing projects, tech stack, and experience.
 
-## Highlights
+## Features
 
-- **Sectioned narrative** covering hero intro, about, tech stack, projects, experience, skills, education, and contact details.
-- **Project cards** with GitHub repositories and live demos, including disabled states for in-progress deployments.
-- **Experience timeline** that uses semantic markup and machine-readable dates for better accessibility and SEO.
-- **Accessible navigation** (semantic list, ARIA labeling) and icon-only contact links enclosed in an `address` element.
-- **SEO & social previews** via enriched meta tags, Open Graph, and Twitter image alt text.
+- Accessible, semantic HTML5 structure with clear landmarks (`header`, `main`, `footer`).
+- Navigation highlights the section in view (IntersectionObserver + `aria-current`).
+- Smooth in‑page scrolling with sticky header offset; hero remains unhighlighted on top.
+- Cards for Projects, Experience, Skills, and Education with consistent visual language.
+- Footer‑integrated Contacts with icon‑only links wrapped in `address` and hidden text labels.
+- SEO and social previews via Open Graph/Twitter meta (including `og:image:alt` and `twitter:image:alt`).
 
-## Structure
+## Project Structure
 
 ```text
 .
-├── index.html       # Main HTML document and portfolio content
-├── styles.css       # Visual styling (dark gradient, glassmorphism accents)
-├── script.js        # Small helpers
-├── CNAME            # Custom domain configuration for GitHub Pages
+├── index.html                # Portfolio content and markup
+├── script.js                 # Smooth scrolling + active nav highlighting + helpers
+├── css/
+│   ├── styles.css            # Core styles (colors, layout, sections, components)
+│   └── media-queries.css     # Responsive breakpoints & tweaks
 ├── public/
-│   ├── favicon.ico
+│   └── favicon.ico
+├── CNAME                     # Custom domain (GitHub Pages)
 └── .gitignore
 ```
+
+## Accessibility
+
+- Semantic lists in navigation; `nav` has `aria-label="Primary"`.
+- In‑page nav sets `aria-current="page"` for the active link.
+- Contact icons include visually hidden labels via `.sr-only`; contact links live inside an `address`.
+- Decorative emoji/icons rely on adjacent labels (icons can be marked `aria-hidden="true"`).
+- Headings and section structure are linear and screen‑reader‑friendly.
+
+## Browser Support
+
+- Modern evergreen browsers (Chromium, Firefox, Safari, Edge). Subgrid is used in Skills as progressive enhancement and is supported in current major browsers; layout degrades gracefully where unsupported.
 
 ## License
 
