@@ -545,10 +545,7 @@ section[id]:not(#hero) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* display: grid; */
-  /* grid-template-columns: repeat(2, 1fr); */
   gap: 4rem;
-  /* align-items: stretch; */
 }
 
 #experience .card {
@@ -586,6 +583,11 @@ section[id]:not(#hero) {
   display: none;
 }
 
+#skills .card ul li::before {
+  content: none;
+  display: none;
+}
+
 .card ul {
   list-style: none;
   display: grid;
@@ -603,6 +605,23 @@ section[id]:not(#hero) {
   display: inline-block;
   margin-right: 0.6rem;
   vertical-align: middle;
+}
+
+/* Skills section styling */
+#skills > .skill-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1.8rem;
+  align-items: stretch;
+}
+
+#skills .card strong {
+  display: inline-block;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--color-text-primary);
 }
 
 /* Footer styling */
