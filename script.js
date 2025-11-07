@@ -48,7 +48,7 @@ for (const inPageLink of inPageLinks) {
 }
 
 // Scroll-to-top for the logo
-const homeAnchor = document.querySelector(".logo");
+const homeAnchor = document.querySelector(".home");
 if (homeAnchor) {
   homeAnchor.addEventListener("click", (event) => {
     event.preventDefault();
