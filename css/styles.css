@@ -19,24 +19,25 @@ Bold: 700
 :root {
   --font-family: "Inter", "sans-serif";
 
-  --color-bg-900: #050814;
-  --color-bg-800: #0b1426;
-  --color-surface: rgba(8, 13, 28, 0.82);
-  --color-surface-strong: rgba(8, 13, 28, 0.92);
+  --color-bg-900: #030612;
+  --color-bg-800: #0a1322;
+  --color-surface: rgba(6, 10, 22, 0.84);
+  --color-surface-strong: rgba(6, 10, 22, 0.94);
   --color-border: rgba(99, 102, 241, 0.28);
   --color-border-strong: rgba(99, 102, 241, 0.45);
 
   --color-text-primary: #eef2ff;
-  --color-text-secondary: rgba(219, 227, 255, 0.78);
-  --color-text-muted: rgba(177, 191, 255, 0.6);
+  --color-text-secondary: rgba(224, 232, 255, 0.78);
+  --color-text-muted: rgba(189, 200, 244, 0.65);
+  --color-on-accent: #0b1022;
 
   --color-accent: #6366f1;
   --color-accent-soft: rgba(99, 102, 241, 0.16);
-  --color-overlay-soft: rgba(99, 102, 241, 0.12);
-  --color-overlay-medium: rgba(99, 102, 241, 0.18);
-  --color-disabled-border: rgba(99, 102, 241, 0.22);
-  --color-disabled-fill: rgba(99, 102, 241, 0.1);
-  --color-header-backdrop: rgba(5, 8, 20, 0.78);
+  --color-overlay-soft: rgba(99, 102, 241, 0.1);
+  --color-overlay-medium: rgba(99, 102, 241, 0.16);
+  --color-disabled-border: rgba(148, 163, 184, 0.32);
+  --color-disabled-fill: rgba(148, 163, 184, 0.12);
+  --color-header-backdrop: rgba(5, 8, 20, 0.84);
 
   --color-action: #14b8a6;
   --color-action-strong: #0ea5e9;
@@ -169,13 +170,13 @@ section[id]:not(#hero) {
 }
 
 .logo-dev {
-  color: #fff;
+  color: var(--color-text-primary);
   background: var(--color-header-backdrop);
   padding: 0.25rem 0;
 }
 
 .logo-eloper {
-  color: #000;
+  color: var(--color-on-accent);
   background-color: var(--color-accent);
   padding: 0.25rem 0.5rem;
   border-radius: 0.6rem;
@@ -746,11 +747,11 @@ section[id]:not(#hero) {
   border-radius: 1.2rem;
   background: linear-gradient(
       160deg,
-      rgba(99, 102, 241, 0.18) 0%,
-      rgba(14, 165, 233, 0.12) 45%,
-      rgba(5, 8, 20, 0.45) 100%
+      var(--color-accent-soft) 0%,
+      var(--color-action-soft) 45%,
+      rgba(5, 8, 20, 0.55) 100%
     ),
-    rgba(5, 8, 20, 0.5);
+    rgba(5, 8, 20, 0.6);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-panel);
 }
