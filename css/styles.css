@@ -715,11 +715,16 @@ section[id]:not(#hero) {
 }
 
 /* User manipulation prevention */
+
 .tech-item,
 .tech-item *,
 #projects .card,
 #projects .card *,
-.experience *,
+.experience .card *,
+#skills .card,
+#skills .card *,
+#education .card,
+#education .card *,
 .footer .copyright {
   -webkit-user-select: none;
   -moz-user-select: none;
