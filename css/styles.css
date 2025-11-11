@@ -366,7 +366,7 @@ section[id]:not(#hero) {
   align-items: center;
 }
 
-.project-row {
+.projects-grid {
   display: grid;
   gap: 1.8rem;
   grid-template-columns: repeat(6, 1fr);
@@ -399,7 +399,7 @@ section[id]:not(#hero) {
   grid-column-end: 6;
 }
 
-.project-row > .card {
+.projects-grid > .card {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 4;
@@ -563,7 +563,7 @@ section[id]:not(#hero) {
   background: var(--color-surface-strong);
 }
 
-#experience > .experience > .card {
+#experience > .experience-row > .card {
   display: grid;
   grid-template-rows: auto auto 1fr;
 }
@@ -619,7 +619,7 @@ section[id]:not(#hero) {
 }
 
 /* Skills section styling */
-#skills > .skill-cards {
+#skills > .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
@@ -636,7 +636,7 @@ section[id]:not(#hero) {
 }
 
 /* Education section styling */
-#education > .education {
+#education > .education-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.8rem;
@@ -644,7 +644,7 @@ section[id]:not(#hero) {
   margin-bottom: 9.6rem;
 }
 
-#education > .education > .card {
+#education > .education-grid > .card {
   height: 100%;
   display: grid;
   grid-template-rows: auto auto 1fr;
