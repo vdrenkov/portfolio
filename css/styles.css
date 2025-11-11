@@ -13,7 +13,7 @@ Bold: 700
 
 - Border-radius: 12px
 
-- TranslateY: -3px
+- TranslateY: -2px / -4px
 */
 
 :root {
@@ -129,7 +129,7 @@ section {
 
 /* Offset in-page anchor scrolling for sticky header */
 section[id]:not(#hero) {
-  scroll-margin-top: calc(12vh);
+  scroll-margin-top: calc(11vh);
 }
 
 /* Header styling */
@@ -137,13 +137,13 @@ section[id]:not(#hero) {
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   background: var(--color-header-backdrop);
   border-bottom: 1px solid var(--color-border);
 
-  height: 11vh;
-  padding: 0 10vw;
+  height: 10vh;
+  padding: 1rem 5vw;
   font-weight: 700;
 }
 
@@ -185,12 +185,9 @@ section[id]:not(#hero) {
 .nav-links {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   list-style: none;
-}
-
-.nav-links li {
-  display: flex;
+  margin-left: auto;
 }
 
 .nav-links a {
@@ -206,11 +203,15 @@ section[id]:not(#hero) {
   transition: all 0.2s;
 }
 
+.nav-links li:last-child a {
+  padding-right: 0;
+}
+
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
   color: var(--color-text-primary);
   background-color: var(--color-action-soft);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: var(--color-accent);
   box-shadow: var(--shadow-action);
 }
@@ -280,7 +281,7 @@ section[id]:not(#hero) {
 }
 
 .hero a:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-action-hover);
 }
 
@@ -332,7 +333,7 @@ section[id]:not(#hero) {
 }
 
 .tech-item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--color-border-strong);
   box-shadow: var(--shadow-accent-glow);
 }
@@ -465,7 +466,7 @@ section[id]:not(#hero) {
 }
 
 .project-links a:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--color-action);
   box-shadow: var(--shadow-action);
 }
@@ -525,7 +526,7 @@ section[id]:not(#hero) {
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--color-border-strong);
   box-shadow: var(--shadow-hover);
 }
