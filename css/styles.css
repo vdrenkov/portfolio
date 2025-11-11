@@ -328,6 +328,11 @@ section[id]:not(#hero) {
   margin-bottom: 2vw;
 }
 
+#projects > h2 {
+  margin-top: 0;
+  margin-bottom: 2vw;
+}
+
 .tech-item {
   display: flex;
   flex-direction: column;
@@ -403,10 +408,15 @@ section[id]:not(#hero) {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 4;
-  padding: 2.4rem;
+  row-gap: 3rem;
+  padding: 3rem 2.4rem;
   border: 1px solid var(--color-border);
   border-radius: 1.2rem;
   background: var(--color-surface-strong);
+}
+
+.projects-grid > .card > * {
+  margin: 0;
 }
 
 .card-title {
@@ -428,15 +438,10 @@ section[id]:not(#hero) {
   justify-content: center;
   gap: 1.2rem;
   grid-row: 4;
-  margin-top: 0.4rem;
-}
-
-.project-row .card p + p {
-  margin-top: 0.8rem;
 }
 
 .project-links a {
-  padding: 1.2rem 2.4rem;
+  padding: 1.2rem 1.8rem;
   border-radius: 999px;
   border: 1px solid var(--color-action-border);
   color: var(--color-text-primary);
@@ -521,9 +526,8 @@ section[id]:not(#hero) {
 }
 
 .card h3 {
-  font-size: 2.4rem;
+  font-size: 3rem;
   text-align: center;
-  margin-bottom: 2.4rem;
   color: var(--color-text-primary);
 }
 
@@ -531,7 +535,6 @@ section[id]:not(#hero) {
 .card li {
   color: var(--color-text-secondary);
   font-size: 2rem;
-  padding-bottom: 2.4rem;
   line-height: 1.3;
 }
 
