@@ -30,17 +30,34 @@ function getHeaderHeight() {
   return header ? header.offsetHeight : 0;
 }
 
-// Smooth scroll for in-page links
+// Smooth scroll for in-page links with dynamic header offset
+function getScrollOffset() {
+  return getHeaderHeight() + 8;
+}
+
+function scrollToTargetId(id, smooth = true) {
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  const y =
+    target.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+  window.scrollTo({
+    top: Math.max(0, y),
+    behavior: smooth ? "smooth" : "auto",
+  });
+}
+
 const inPageLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 for (const inPageLink of inPageLinks) {
   inPageLink.addEventListener("click", (event) => {
     const id = inPageLink.getAttribute("href").slice(1);
-    const target = document.getElementById(id);
+    if (!id) return;
 
+    const target = document.getElementById(id);
     if (!target) return;
 
     event.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollToTargetId(id, true);
 
     setActiveLinkBySectionId(id);
     history.replaceState(null, "", `#${id}`);
@@ -66,7 +83,7 @@ if (sections.length) {
   const activationGap = Math.max(0, Math.round(window.innerHeight * 0.11) + 8);
   const topOffset = Math.max(headerOffset, activationGap);
 
-  const observer = new IntersectionObserver(
+  let observer = new IntersectionObserver(
     (entries) => {
       const visible = entries
         .filter((en) => en.isIntersecting)
@@ -87,14 +104,15 @@ if (sections.length) {
     }
   );
 
-  for (const section of sections) {
-    observer.observe(section);
-  }
+  for (const section of sections) observer.observe(section);
 
   window.addEventListener("load", () => {
     if (location.hash) {
       const id = location.hash.slice(1);
-      if (document.getElementById(id)) setActiveLinkBySectionId(id);
+      if (document.getElementById(id)) {
+        scrollToTargetId(id, false);
+        setActiveLinkBySectionId(id);
+      }
     } else {
       clearActiveLinks();
     }
@@ -102,8 +120,51 @@ if (sections.length) {
 
   globalThis.addEventListener("hashchange", () => {
     const id = location.hash.slice(1);
-    if (id === "hero" || !id) clearActiveLinks();
-    else if (document.getElementById(id)) setActiveLinkBySectionId(id);
+    if (id === "hero" || !id) {
+      clearActiveLinks();
+    } else if (document.getElementById(id)) {
+      scrollToTargetId(id, true);
+      setActiveLinkBySectionId(id);
+    }
+  });
+
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (observer && typeof observer.disconnect === "function")
+        observer.disconnect();
+
+      const headerOffset2 = getHeaderHeight();
+      const activationGap2 = Math.max(
+        0,
+        Math.round(window.innerHeight * 0.11) + 8
+      );
+      const topOffset2 = Math.max(headerOffset2, activationGap2);
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((en) => en.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visible) {
+            setActiveLinkBySectionId(visible.target.id);
+          } else if (lastActiveId) {
+            setActiveLinkBySectionId(lastActiveId);
+          } else {
+            clearActiveLinks();
+          }
+        },
+        {
+          root: null,
+          rootMargin: `-${topOffset2}px 0px -40% 0px`,
+          threshold: [0.25, 0.5, 0.75],
+        }
+      );
+
+      for (const section of sections) observer.observe(section);
+    }, 120);
   });
 }
 
