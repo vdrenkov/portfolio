@@ -318,6 +318,11 @@ section[id]:not(#hero) {
   gap: 1.2rem;
 }
 
+#tech-stack > h2 {
+  margin-top: 0;
+  margin-bottom: 2vw;
+}
+
 .tech-item {
   display: flex;
   flex-direction: column;
