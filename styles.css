@@ -613,7 +613,7 @@ section[id]:not(#hero) {
 }
 
 .experience-row .card li {
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
 }
 
 .in-progress {
