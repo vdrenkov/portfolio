@@ -178,13 +178,13 @@ section[id]:not(#hero) {
 .logo-dev {
   color: var(--color-text-primary);
   background: var(--color-header-backdrop);
-  padding: 0.25rem 0;
+  padding: 0.25rem;
 }
 
 .logo-eloper {
   color: var(--color-on-accent);
   background-color: var(--color-accent);
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem;
   border-radius: 0.6rem;
 }
 
