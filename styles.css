@@ -622,12 +622,11 @@ section[id]:not(#hero) {
 }
 
 /* Skills section styling */
-#skills .card ul li::before {
-  content: none;
-  display: none;
+.skills h2 {
+  margin-bottom: 2vw;
 }
 
-#skills > .skills-grid {
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
@@ -635,12 +634,25 @@ section[id]:not(#hero) {
   align-items: stretch;
 }
 
-#skills .card strong {
-  display: inline-block;
-  text-align: center;
+.skills-grid h3 {
+  font-size: 2.4rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.skill-list li {
   font-size: 2rem;
   margin-bottom: 1.2rem;
-  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.skill-list strong {
+  font-weight: 700;
+}
+
+.skills .card ul li::before {
+  content: none;
+  display: none;
 }
 
 /* Education section styling */
