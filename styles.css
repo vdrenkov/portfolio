@@ -16,6 +16,7 @@ Bold: 700
 - TranslateY: -2px / -4px
 */
 
+/* ------------------   TOKENS   ------------------ */
 :root {
   --font-family: "Inter", "sans-serif";
 
@@ -66,8 +67,8 @@ Bold: 700
 *::after {
   margin: 0;
   padding: 0;
-  font-family: var(--font-family);
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 html {
@@ -242,7 +243,6 @@ section[id]:not(#hero) {
   justify-content: center;
   height: 89vh;
   text-align: center;
-  margin-top: 0;
 }
 
 .hero section {
@@ -316,21 +316,16 @@ section[id]:not(#hero) {
   font-size: 4.4rem;
 }
 
+.tech-stack h2 {
+  margin-top: 0;
+  margin-bottom: 2vw;
+}
+
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 1.2rem;
-}
-
-#tech-stack > h2 {
-  margin-top: 0;
-  margin-bottom: 2vw;
-}
-
-#projects > h2 {
-  margin-top: 0;
-  margin-bottom: 2vw;
 }
 
 .tech-item {
@@ -371,6 +366,11 @@ section[id]:not(#hero) {
   align-items: center;
 }
 
+.projects h2 {
+  margin-top: 0;
+  margin-bottom: 2vw;
+}
+
 .projects-grid {
   display: grid;
   gap: 1.8rem;
@@ -404,7 +404,7 @@ section[id]:not(#hero) {
   grid-column-end: 6;
 }
 
-.projects-grid > .card {
+.projects-grid .card {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 4;
@@ -413,10 +413,6 @@ section[id]:not(#hero) {
   border: 1px solid var(--color-border);
   border-radius: 1.2rem;
   background: var(--color-surface-strong);
-}
-
-.projects-grid > .card > * {
-  margin: 0;
 }
 
 .card-title {
@@ -441,7 +437,7 @@ section[id]:not(#hero) {
 }
 
 .project-links a {
-  padding: 1.2rem 1.8rem;
+  padding: 1.2rem;
   border-radius: 999px;
   border: 1px solid var(--color-action-border);
   color: var(--color-text-primary);
@@ -515,6 +511,7 @@ section[id]:not(#hero) {
   text-decoration: none;
 }
 
+/* Reusable card component styling */
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -523,6 +520,12 @@ section[id]:not(#hero) {
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow-card);
   transition: all 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-hover);
 }
 
 .card h3 {
@@ -536,70 +539,6 @@ section[id]:not(#hero) {
   color: var(--color-text-secondary);
   font-size: 2rem;
   line-height: 1.3;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-hover);
-}
-
-/* Experience section styling */
-.experience {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60vw;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.experience-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4.8rem;
-}
-
-#experience .card {
-  background: var(--color-surface-strong);
-}
-
-#experience > .experience-row > .card {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-}
-
-#experience .card > p {
-  color: var(--color-text-muted);
-  text-align: center;
-  padding-bottom: 1.2rem;
-  grid-row: 2;
-}
-
-.in-progress {
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-.experience .card > h3 {
-  grid-row: 1;
-  font-size: 3.6rem;
-}
-
-#experience .card > ul {
-  grid-row: 3;
-}
-
-#experience .card ul li::before {
-  content: none;
-  display: none;
-}
-
-#skills .card ul li::before {
-  content: none;
-  display: none;
 }
 
 .card ul {
@@ -621,7 +560,73 @@ section[id]:not(#hero) {
   vertical-align: middle;
 }
 
+/* Experience section styling */
+.experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience h2 {
+  margin-top: 0;
+  margin-bottom: 2vw;
+}
+
+.experience-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4.8rem;
+}
+
+.experience-row .card {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  background: var(--color-surface-strong);
+  row-gap: 3rem;
+  padding: 3rem 2.4rem;
+}
+
+.experience-row .card h3 {
+  grid-row: 1;
+  font-size: 3.6rem;
+}
+
+.experience-row .card p {
+  color: var(--color-text-muted);
+  text-align: center;
+  grid-row: 2;
+}
+
+.experience-row .card ul {
+  grid-row: 3;
+  margin-top: 0;
+}
+
+.experience .card ul li::before {
+  content: none;
+  display: none;
+}
+
+.experience-row .card li {
+  margin-bottom: 2rem;
+}
+
+.in-progress {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 /* Skills section styling */
+#skills .card ul li::before {
+  content: none;
+  display: none;
+}
+
 #skills > .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -768,4 +773,27 @@ section[id]:not(#hero) {
     rgba(5, 8, 20, 0.6);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-panel);
+}
+
+/* ------------------   MEDIA QUERIES   ------------------ */
+
+/* Below 1200px (Laptops) */
+@media (max-width: 75em) {
+  .main-container {
+    margin: 0 10vw;
+  }
+}
+
+/* Below 992px (Tablets) */
+@media (max-width: 62em) {
+  .main-container {
+    margin: 0 6vw;
+  }
+}
+
+/* Below 768px (Smartphones) */
+@media (max-width: 48em) {
+  .main-container {
+    margin: 0 4vw;
+  }
 }
