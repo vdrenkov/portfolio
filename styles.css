@@ -656,23 +656,47 @@ section[id]:not(#hero) {
 }
 
 /* Education section styling */
-#education > .education-grid {
+.education h2 {
+  margin-bottom: 2vw;
+}
+
+.education-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
   gap: 1.8rem;
   align-items: stretch;
   margin-bottom: 9.6rem;
 }
 
-#education > .education-grid > .card {
-  height: 100%;
+.education-grid .card {
+  height: auto;
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: subgrid;
+  grid-row: 1 / span 3;
+  row-gap: 2.4rem;
 }
 
-#education .edu-meta {
-  color: var(--color-text-muted);
+.education-grid .card h3 {
+  grid-row: 1;
+  font-size: 3rem;
   text-align: center;
+  margin: 0;
+}
+
+.education-grid .card p:nth-of-type(1) {
+  grid-row: 2;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 0;
+}
+
+.education-grid .card p:nth-of-type(2) {
+  grid-row: 3;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
 /* Footer styling */
