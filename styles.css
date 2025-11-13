@@ -748,13 +748,13 @@ section[id]:not(#hero) {
 /* User manipulation prevention */
 .tech-item,
 .tech-item *,
-#projects .card,
-#projects .card *,
+.projects .card,
+.projects .card *,
 .experience .card *,
-#skills .card,
-#skills .card *,
-#education .card,
-#education .card *,
+.skills .card,
+.skills .card *,
+.education .card,
+.education .card *,
 .footer .copyright {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -762,8 +762,8 @@ section[id]:not(#hero) {
   user-select: none;
 }
 
-#projects .project-links a,
-#projects .project-links a * {
+.projects .project-links a,
+.projects .project-links a * {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
