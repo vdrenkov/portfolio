@@ -79,9 +79,7 @@ if (homeAnchor) {
 // Active link on section visibility
 const sections = Array.from(document.querySelectorAll("section[id]"));
 if (sections.length) {
-  const headerOffset = getHeaderHeight();
-  const activationGap = Math.max(0, Math.round(window.innerHeight * 0.11) + 8);
-  const topOffset = Math.max(headerOffset, activationGap);
+  const topOffset = Math.max(0, getHeaderHeight());
 
   let observer = new IntersectionObserver(
     (entries) => {
@@ -135,13 +133,7 @@ if (sections.length) {
       if (observer && typeof observer.disconnect === "function")
         observer.disconnect();
 
-      const headerOffset2 = getHeaderHeight();
-      const activationGap2 = Math.max(
-        0,
-        Math.round(window.innerHeight * 0.11) + 8
-      );
-      const topOffset2 = Math.max(headerOffset2, activationGap2);
-
+      const topOffset2 = Math.max(0, getHeaderHeight());
       observer = new IntersectionObserver(
         (entries) => {
           const visible = entries

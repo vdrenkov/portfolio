@@ -313,6 +313,7 @@ section[id]:not(#hero) {
 .tech-stack {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 4.4rem;
 }
 
@@ -332,6 +333,7 @@ section[id]:not(#hero) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   padding: 1.2rem 0.8rem;
   border-radius: 1.2rem;
@@ -364,6 +366,7 @@ section[id]:not(#hero) {
 .projects {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .projects h2 {
@@ -442,7 +445,7 @@ section[id]:not(#hero) {
   border: 1px solid var(--color-action-border);
   color: var(--color-text-primary);
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-decoration: none;
   letter-spacing: 0.015em;
   background: var(--color-action-soft);
@@ -631,13 +634,18 @@ section[id]:not(#hero) {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 1.8rem;
-  align-items: stretch;
+}
+
+.skills-grid .card {
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 .skills-grid h3 {
   font-size: 2.4rem;
   margin-bottom: 3rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .skill-list li {
@@ -665,7 +673,6 @@ section[id]:not(#hero) {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto auto;
   gap: 1.8rem;
-  align-items: stretch;
   margin-bottom: 9.6rem;
 }
 
@@ -703,8 +710,8 @@ section[id]:not(#hero) {
 .footer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 1.2rem;
 
   padding: 2.4rem 5vw;
@@ -815,6 +822,11 @@ section[id]:not(#hero) {
 
 /* Below 1200px (Laptops) */
 @media (max-width: 75em) {
+  html {
+    /* 9px */
+    font-size: 56.25%;
+  }
+
   .main-container {
     margin: 0 10vw;
   }
@@ -822,6 +834,11 @@ section[id]:not(#hero) {
 
 /* Below 992px (Tablets) */
 @media (max-width: 62em) {
+  html {
+    /* 8px */
+    font-size: 50%;
+  }
+
   .main-container {
     margin: 0 6vw;
   }
@@ -829,6 +846,11 @@ section[id]:not(#hero) {
 
 /* Below 768px (Smartphones) */
 @media (max-width: 48em) {
+  html {
+    /* 7px */
+    font-size: 43.75%;
+  }
+
   .main-container {
     margin: 0 4vw;
   }
