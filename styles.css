@@ -820,7 +820,7 @@ section[id]:not(#hero) {
 
 /* ------------------   MEDIA QUERIES   ------------------ */
 
-/* Below 1297px */
+/* Below 1296px */
 @media (max-width: 81em) {
   html {
     /* 9px */
@@ -836,19 +836,19 @@ section[id]:not(#hero) {
   }
 }
 
-/* Below 992px (Tablets) */
-@media (max-width: 62em) {
+/* Below 1120px */
+@media (max-width: 70em) {
   html {
     /* 8px */
     font-size: 50%;
   }
+}
 
-  .main-container {
-    margin: 0 6vw;
-  }
-
-  .nav-links a {
-    /* font-size: 2rem; */
+/* Below 992px */
+@media (max-width: 62em) {
+  html {
+    /* 7px */
+    font-size: 43.75%;
   }
 }
 
