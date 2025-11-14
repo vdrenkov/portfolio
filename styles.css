@@ -863,15 +863,3 @@ section[id]:not(#hero) {
     font-size: 37.5%;
   }
 }
-
-/* Below 768px (Smartphones) */
-@media (max-width: 48em) {
-  html {
-    /* 7px */
-    font-size: 43.75%;
-  }
-
-  .main-container {
-    margin: 0 4vw;
-  }
-}
