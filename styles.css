@@ -850,6 +850,18 @@ section[id]:not(#hero) {
     /* 7px */
     font-size: 43.75%;
   }
+
+  .main-container {
+    margin: 0 8vw;
+  }
+}
+
+/* Below 832px */
+@media (max-width: 52em) {
+  html {
+    /* 6px */
+    font-size: 37.5%;
+  }
 }
 
 /* Below 768px (Smartphones) */
