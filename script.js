@@ -160,6 +160,28 @@ if (sections.length) {
   });
 }
 
+// Equalize Skills section headings height
+function equalizeSkillHeadings() {
+  const headings = document.querySelectorAll(".skills-grid .card h3");
+  if (!headings.length) return;
+
+  for (const heading of headings) {
+    heading.style.minHeight = "";
+  }
+
+  let maxHeight = 0;
+  for (const heading of headings) {
+    const headingHeight = heading.offsetHeight;
+    if (headingHeight > maxHeight) maxHeight = headingHeight;
+  }
+
+  for (const heading of headings) {
+    heading.style.minHeight = maxHeight + "px";
+  }
+}
+window.addEventListener("load", equalizeSkillHeadings);
+window.addEventListener("resize", equalizeSkillHeadings);
+
 // Footer year
 const yearElement = document.getElementById("year");
 if (yearElement) {

@@ -233,6 +233,11 @@ section[id]:not(#hero) {
 
 /* Main styling */
 .main-container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+
   margin: 0 12vw;
 }
 
@@ -646,7 +651,6 @@ section[id]:not(#hero) {
   font-size: 2.4rem;
   margin-bottom: 3rem;
   font-weight: 700;
-  white-space: nowrap;
 }
 
 .skill-list li {
@@ -833,17 +837,29 @@ section[id]:not(#hero) {
   }
 }
 
-/* Below 992px (Tablets) */
-@media (max-width: 62em) {
+/* Below 1152px (Tablets) */
+@media (max-width: 72em) {
   html {
     /* 8px */
     font-size: 50%;
   }
 
   .main-container {
-    margin: 0 6vw;
+    /* margin: 0 6vw; */
   }
 }
+
+/* Below 992px (Tablets) */
+/* 8px */
+/* @media (max-width: 62em) {
+  html {
+    font-size: 50%;
+  }
+
+  .main-container {
+    margin: 0 6vw;
+  }
+} */
 
 /* Below 768px (Smartphones) */
 @media (max-width: 48em) {
