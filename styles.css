@@ -874,6 +874,28 @@ section[id]:not(#hero) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
   }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .education-grid .card {
+    grid-template-rows: auto auto auto;
+    grid-row: auto;
+  }
+
+  .education-grid .card:nth-child(1) {
+    order: 3;
+  }
+
+  .education-grid .card:nth-child(2) {
+    order: 2;
+  }
+
+  .education-grid .card:nth-child(3) {
+    order: 1;
+  }
 }
 
 /* Below 720px */
