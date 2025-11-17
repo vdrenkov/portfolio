@@ -863,7 +863,12 @@ section[id]:not(#hero) {
     font-size: 2rem;
     padding: 0.6rem 1.2rem;
   }
+
   /* Switch from 3 columns to 2 */
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
 }
 
 /* Below 720px */
@@ -885,4 +890,8 @@ section[id]:not(#hero) {
 /* Below 608px */
 @media (max-width: 38em) {
   /* Switch from 2 columns to 1 */
+  .tech-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+  }
 }
