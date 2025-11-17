@@ -869,6 +869,11 @@ section[id]:not(#hero) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
   }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
 }
 
 /* Below 720px */
@@ -893,5 +898,10 @@ section[id]:not(#hero) {
   .tech-grid {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(12, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, auto);
   }
 }
