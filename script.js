@@ -35,6 +35,29 @@ function getScrollOffset() {
   return getHeaderHeight() + 8;
 }
 
+let reduceMotionPrefers = false;
+const reduceMotionQuery = globalThis.matchMedia
+  ? globalThis.matchMedia("(prefers-reduced-motion: reduce)")
+  : null;
+
+if (reduceMotionQuery) {
+  reduceMotionPrefers = reduceMotionQuery.matches;
+
+  const updatePreference = (event) => {
+    reduceMotionPrefers = event.matches;
+  };
+
+  if (typeof reduceMotionQuery.addEventListener === "function") {
+    reduceMotionQuery.addEventListener("change", updatePreference);
+  } else if ("onchange" in reduceMotionQuery) {
+    reduceMotionQuery.onchange = updatePreference;
+  }
+}
+
+function shouldReduceMotion() {
+  return reduceMotionPrefers;
+}
+
 function scrollToTargetId(id, smooth = true) {
   const target = document.getElementById(id);
   if (!target) return;
@@ -43,7 +66,7 @@ function scrollToTargetId(id, smooth = true) {
     target.getBoundingClientRect().top + window.scrollY - getScrollOffset();
   window.scrollTo({
     top: Math.max(0, y),
-    behavior: smooth ? "smooth" : "auto",
+    behavior: smooth && !shouldReduceMotion() ? "smooth" : "auto",
   });
 }
 
@@ -76,7 +99,10 @@ if (homeAnchor) {
     event.preventDefault();
 
     clearActiveLinks();
-    globalThis.scrollTo({ top: 0, behavior: "smooth" });
+    globalThis.scrollTo({
+      top: 0,
+      behavior: shouldReduceMotion() ? "auto" : "smooth",
+    });
     history.replaceState(null, "", "#");
   });
 }

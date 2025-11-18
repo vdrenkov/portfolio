@@ -74,9 +74,14 @@ html {
     10px / 16px = 0.625 = 62.5%
   */
   font-size: 62.5%;
-  scroll-behavior: smooth;
   overflow-x: hidden;
   color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
