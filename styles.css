@@ -784,29 +784,15 @@ section[id]:not(#hero) {
   border: 0;
 }
 
-/* User manipulation prevention */
-.tech-item,
-.tech-item *,
-.projects .card,
-.projects .card *,
-.experience .card *,
-.skills .card,
-.skills .card *,
-.education .card,
-.education .card *,
-.footer .copyright {
+/* Prevent accidental selection on icon-only controls */
+.nav-toggle,
+.nav-toggle img,
+.tech-icon,
+.contact-links svg {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.projects .project-links a,
-.projects .project-links a * {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
 }
 
 /* Section panels for contrast */
