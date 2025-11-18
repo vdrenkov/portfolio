@@ -1023,6 +1023,14 @@ section[id]:not(#hero) {
     grid-column: 1;
   }
 
+  #tech-stack {
+    padding: 2rem;
+  }
+
+  .tech-stack h2 {
+    margin-bottom: 2rem;
+  }
+
   .tech-grid {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(12, 1fr);
