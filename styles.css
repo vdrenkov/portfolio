@@ -656,7 +656,6 @@ section[id]:not(#hero) {
 }
 
 /* Skills section styling */
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -671,13 +670,13 @@ section[id]:not(#hero) {
 
 .skills-grid h3 {
   font-size: 2.4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.6rem;
   font-weight: 700;
 }
 
 .skill-list li {
   font-size: 2rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
   font-weight: 400;
 }
 
@@ -1080,4 +1079,3 @@ section[id]:not(#hero) {
     grid-row: auto;
   }
 }
-
