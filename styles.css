@@ -435,13 +435,19 @@ section[id]:not(#hero) {
 
 .projects-grid .card {
   display: grid;
-  grid-template-rows: subgrid;
+  grid-template-rows: auto auto auto auto;
   grid-row: span 4;
   row-gap: 3rem;
   padding: 3rem 2.4rem;
   border: 1px solid var(--color-border);
   border-radius: 1.2rem;
   background: var(--color-surface-strong);
+}
+
+@supports (grid-template-rows: subgrid) {
+  .projects-grid .card {
+    grid-template-rows: subgrid;
+  }
 }
 
 .card-title {
@@ -688,9 +694,15 @@ section[id]:not(#hero) {
 .education-grid .card {
   height: auto;
   display: grid;
-  grid-template-rows: subgrid;
+  grid-template-rows: auto auto auto;
   grid-row: 1 / span 3;
   row-gap: 2.4rem;
+}
+
+@supports (grid-template-rows: subgrid) {
+  .education-grid .card {
+    grid-template-rows: subgrid;
+  }
 }
 
 .education-grid .card h3 {
