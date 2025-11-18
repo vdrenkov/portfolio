@@ -256,8 +256,7 @@ section[id]:not(#hero) {
   display: flex;
 }
 
-.nav-links a:hover,
-.nav-links a[aria-current="page"] {
+.nav-links a:hover {
   color: var(--color-text-primary);
   background-color: var(--color-action-soft);
   transform: translateY(-2px);
