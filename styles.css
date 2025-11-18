@@ -121,9 +121,14 @@ h2 {
   font-size: 6.2rem;
   font-weight: 600;
   color: var(--color-text-primary);
-  margin-bottom: 1.8rem;
   letter-spacing: 0.015em;
   text-align: center;
+}
+
+.about h2,
+.skills h2,
+.education h2 {
+  margin-bottom: 2rem;
 }
 
 section {
@@ -341,11 +346,6 @@ section[id]:not(#hero) {
   font-size: 4.4rem;
 }
 
-.tech-stack h2 {
-  margin-top: 0;
-  margin-bottom: 2vw;
-}
-
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -392,11 +392,6 @@ section[id]:not(#hero) {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.projects h2 {
-  margin-top: 0;
-  margin-bottom: 2vw;
 }
 
 .projects-grid {
@@ -597,11 +592,6 @@ section[id]:not(#hero) {
   margin-right: auto;
 }
 
-.experience h2 {
-  margin-top: 0;
-  margin-bottom: 2vw;
-}
-
 .experience-row {
   display: flex;
   flex-direction: column;
@@ -649,9 +639,6 @@ section[id]:not(#hero) {
 }
 
 /* Skills section styling */
-.skills h2 {
-  margin-bottom: 2vw;
-}
 
 .skills-grid {
   display: grid;
@@ -687,10 +674,6 @@ section[id]:not(#hero) {
 }
 
 /* Education section styling */
-.education h2 {
-  margin-bottom: 2vw;
-}
-
 .education-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
