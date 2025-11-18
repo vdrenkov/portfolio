@@ -62,7 +62,22 @@
             ><span class="logo-eloper">eloper</span>
           </div>
         </a>
-        <ul class="nav-links">
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <img
+            src="public/menu-dropdown.svg"
+            alt="Dropdown menu for mobile screens."
+            aria-hidden="true"
+          />
+        </button>
+
+        <ul class="nav-links" id="primary-nav">
           <li><a href="#about">About</a></li>
           <li><a href="#tech-stack">Tech Stack</a></li>
           <li><a href="#projects">Projects</a></li>

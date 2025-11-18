@@ -61,6 +61,11 @@ for (const inPageLink of inPageLinks) {
 
     setActiveLinkBySectionId(id);
     history.replaceState(null, "", `#${id}`);
+
+    if (isMobileNav() && header) {
+      navToggle?.setAttribute("aria-expanded", "false");
+      header.classList.remove("nav-open");
+    }
   });
 }
 
@@ -186,4 +191,32 @@ window.addEventListener("resize", equalizeSkillHeadings);
 const yearElement = document.getElementById("year");
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
+}
+
+// Mobile navigation
+const header = document.querySelector(".main-header");
+const navToggle = document.querySelector(".nav-toggle");
+const primaryNav = document.getElementById("primary-nav");
+
+function isMobileNav() {
+  return globalThis.matchMedia("(max-width: 38em)").matches;
+}
+
+function closeMobileNav() {
+  if (navToggle && header) {
+    navToggle.setAttribute("aria-expanded", "false");
+    header.classList.remove("nav-open");
+  }
+}
+
+if (navToggle && primaryNav && header) {
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!expanded));
+    header.classList.toggle("nav-open", !expanded);
+  });
+
+  window.addEventListener("resize", () => {
+    if (!isMobileNav()) closeMobileNav();
+  });
 }
