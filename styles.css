@@ -465,16 +465,20 @@ section[id]:not(#hero) {
   grid-row: 4;
 }
 
-.project-links a {
+.project-links .btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.2rem 1.6rem;
   border-radius: 999px;
   border: 1px solid var(--color-action-border);
   color: var(--color-text-primary);
   font-weight: 600;
   font-size: 2rem;
-  text-decoration: none;
   letter-spacing: 0.015em;
-  background: var(--color-action-soft);
+  text-decoration: none;
+  cursor: pointer;
   background: linear-gradient(
     135deg,
     var(--color-action),
@@ -483,7 +487,7 @@ section[id]:not(#hero) {
   transition: all 0.2s;
 }
 
-.project-links a.btn--action {
+.project-links .btn--action {
   color: var(--color-text-primary);
   border-color: var(--color-action-border);
   background: linear-gradient(
@@ -493,38 +497,30 @@ section[id]:not(#hero) {
   );
 }
 
-.project-links a.btn--ghost {
+.project-links .btn--ghost {
   color: var(--color-action);
   background: transparent;
   border-color: var(--color-action-border);
 }
 
-.project-links a.btn--ghost:hover {
+.project-links .btn--ghost:hover:not(:disabled) {
   color: var(--color-text-primary);
   background: var(--color-action-soft);
   border-color: var(--color-action);
 }
 
-.project-links a:hover {
+.project-links .btn:hover:not(:disabled) {
   transform: translateY(-4px);
   border-color: var(--color-action);
   box-shadow: var(--shadow-action);
 }
 
-.project-links a[aria-disabled="true"],
-.project-links a:not([href]),
-.project-links a[href=""] {
+.project-links .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
   color: var(--color-text-muted);
   border-color: var(--color-disabled-border);
   background: var(--color-disabled-fill);
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.project-links a[aria-disabled="true"]:hover,
-.project-links a:not([href]):hover,
-.project-links a[href=""]:hover {
   transform: none;
   box-shadow: none;
 }
