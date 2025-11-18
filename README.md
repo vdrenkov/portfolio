@@ -1,42 +1,54 @@
 # Valentin Drenkov — Developer Portfolio
 
-Source code for [vdrenkov.dev](https://vdrenkov.dev) — a single‑page portfolio showcasing projects, tech stack, and experience.
+Source code for [vdrenkov.dev](https://vdrenkov.dev), a handcrafted single-page portfolio that highlights projects, experience, and research interests across Java, Spring, React, and blockchain.
 
-## Features
+## Overview
 
-- Accessible, semantic HTML5 structure with clear landmarks (`header`, `main`, `footer`).
-- Navigation highlights the section in view (IntersectionObserver + `aria-current`).
-- Smooth in‑page scrolling with sticky header offset; hero remains unhighlighted on top.
-- Cards for Projects, Experience, Skills, and Education with consistent visual language.
-- Footer‑integrated Contacts with icon‑only links wrapped in `address` and hidden text labels.
-- SEO and social previews via Open Graph/Twitter meta (including `og:image:alt` and `twitter:image:alt`).
+The site is a static bundle (HTML, CSS, vanilla JS) optimized for GitHub Pages. It focuses on:
+
+- clear, semantic content hierarchy
+- fast navigation with a sticky header that adapts to screen size
+- accessible interactions whether or not JavaScript is available
+- polished visuals with modern CSS (Grid, custom properties, motion-reduced fallbacks)
+
+## Highlights
+
+- **Adaptive sticky navigation** — IntersectionObserver + dynamic offsets keep the active section indicator synchronized across breakpoints; the mobile drawer degrades gracefully when JS is unavailable.
+- **Smooth-yet-accessible scrolling** — Scroll behavior honors `prefers-reduced-motion` and compensates for the sticky header height so anchors never sit under the nav.
+- **Content cards** — Projects, experience, skills, and education all share the same card language for visual consistency.
+- **SEO & sharing** — Comprehensive metadata (description, canonical, Open Graph, Twitter, `og:image:alt`) ensures rich previews on social platforms.
+- **Performance-first assets** — Single CSS/JS files, preconnects for fonts, and lean SVG/emoji-based iconography.
+
+## Tech Stack
+
+- **Markup:** Semantic HTML5 with landmark elements and accessible navigation labels.
+- **Styling:** A single `styles.css` file using CSS custom properties, Grid, Flexbox, subgrid fallbacks, and responsive media queries.
+- **Behavior:** `script.js` manages navigation highlighting, smooth scrolling, reduced-motion handling, equalized card headers, and mobile nav toggling.
+- **Tooling:** No build pipeline required.
 
 ## Project Structure
 
 ```text
 .
-├── index.html                # Portfolio content and markup
-├── script.js                 # Smooth scrolling + active nav highlighting + helpers
-├── css/
-│   ├── styles.css            # Core styles (colors, layout, sections, components)
-│   └── media-queries.css     # Responsive breakpoints & tweaks
+├── index.html          # Page content and metadata
+├── styles.css          # Tokens, layouts, components, and media queries
+├── script.js           # Sticky header logic, smooth scroll, helpers
 ├── public/
-│   └── favicon.ico
-├── CNAME                     # Custom domain (GitHub Pages)
+│   ├── favicon.ico
+│   └── dropdown-menu-icon.svg
+├── CNAME               # Custom domain configuration for GitHub Pages
+├── README.md
+├── TODO                # Personal task list
 └── .gitignore
 ```
 
-## Accessibility
+## Accessibility & UX Notes
 
-- Semantic lists in navigation; `nav` has `aria-label="Primary"`.
-- In‑page nav sets `aria-current="page"` for the active link.
-- Contact icons include visually hidden labels via `.sr-only`; contact links live inside an `address`.
-- Decorative emoji/icons rely on adjacent labels (icons can be marked `aria-hidden="true"`).
-- Headings and section structure are linear and screen‑reader‑friendly.
-
-## Browser Support
-
-- Modern evergreen browsers (Chromium, Firefox, Safari, Edge). Subgrid is used in Skills as progressive enhancement and is supported in current major browsers; layout degrades gracefully where unsupported.
+- Navigation uses semantic lists with `aria-label="Primary"` and sets `aria-current="page"` on the active link.
+- The sticky header exposes navigation even without JavaScript by defaulting to a CSS-only layout (`.no-js` class).
+- Interactive emoji/SVG icons either include visible labels or are marked `aria-hidden="true"` with accompanying text.
+- Motion-sensitive users benefit from `prefers-reduced-motion` handling in both CSS (`scroll-behavior`) and JS (`scrollTo`).
+- Grids that rely on `subgrid` include `@supports` fallbacks so Safari/older Chromium retain proper alignment.
 
 ## License
 
