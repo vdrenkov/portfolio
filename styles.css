@@ -787,6 +787,10 @@ section[id]:not(#hero) {
   fill: currentColor;
 }
 
+.footer .copyright {
+  text-align: center;
+}
+
 /* Visually-hidden utility for accessible labels */
 .sr-only {
   position: absolute;
