@@ -531,7 +531,6 @@ section[id]:not(#hero) {
   color: var(--color-text-secondary);
   font-size: 2rem;
   text-align: center;
-  margin-top: 1.8rem;
 }
 
 .projects-note a {
@@ -840,6 +839,12 @@ section[id]:not(#hero) {
     rgba(5, 8, 20, 0.6);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-panel);
+  display: grid;
+  gap: 2vw;
+}
+
+#projects > .projects-grid {
+  margin-bottom: 0;
 }
 
 /* ------------------   MEDIA QUERIES   ------------------ */
@@ -1014,10 +1019,6 @@ section[id]:not(#hero) {
   .card--4,
   .card--5 {
     grid-column: 1;
-  }
-
-  .projects-note {
-    margin-bottom: 1rem;
   }
 
   .tech-grid {
