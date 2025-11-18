@@ -229,6 +229,12 @@ section[id]:not(#hero) {
   transform: translateY(-1px);
 }
 
+.main-header.nav-open .nav-toggle {
+  border-color: var(--color-accent);
+  background: var(--color-action-soft);
+  box-shadow: var(--shadow-action);
+}
+
 .nav-links a {
   display: inline-flex;
   align-items: center;

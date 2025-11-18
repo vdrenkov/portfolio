@@ -32,6 +32,10 @@ function refreshHeaderState({ rebuildObserver = true } = {}) {
 
 const handleHeaderResize = () => refreshHeaderState({ rebuildObserver: true });
 
+function shouldHighlightNavLinks() {
+  return !isMobileNav();
+}
+
 // Active navigation helpers
 function clearActiveLinks() {
   const navLinks = document.querySelectorAll(".nav-links a[aria-current]");
@@ -95,7 +99,11 @@ for (const inPageLink of inPageLinks) {
 
     event.preventDefault();
     scrollToTargetId(id, true);
-    setActiveLinkBySectionId(id);
+    if (shouldHighlightNavLinks()) {
+      setActiveLinkBySectionId(id);
+    } else {
+      clearActiveLinks();
+    }
     history.replaceState(null, "", `#${id}`);
 
     if (isMobileNav()) closeMobileNav();
@@ -111,11 +119,17 @@ if (homeAnchor) {
       behavior: shouldReduceMotion() ? "auto" : "smooth",
     });
     history.replaceState(null, "", "#");
+    closeMobileNav();
   });
 }
 
 // IntersectionObserver to drive active nav state
 function handleSectionIntersect(entries) {
+  if (!shouldHighlightNavLinks()) {
+    clearActiveLinks();
+    return;
+  }
+
   const visible = entries
     .filter((en) => en.isIntersecting)
     .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -155,7 +169,9 @@ if (sections.length) {
       const id = location.hash.slice(1);
       if (document.getElementById(id)) {
         scrollToTargetId(id, false);
-        setActiveLinkBySectionId(id);
+        if (shouldHighlightNavLinks()) {
+          setActiveLinkBySectionId(id);
+        }
       }
     } else {
       clearActiveLinks();
@@ -168,7 +184,11 @@ if (sections.length) {
       clearActiveLinks();
     } else if (document.getElementById(id)) {
       scrollToTargetId(id, true);
-      setActiveLinkBySectionId(id);
+      if (shouldHighlightNavLinks()) {
+        setActiveLinkBySectionId(id);
+      } else {
+        clearActiveLinks();
+      }
     }
   });
 
@@ -218,6 +238,9 @@ function closeMobileNav() {
   if (navToggle && header) {
     navToggle.setAttribute("aria-expanded", "false");
     header.classList.remove("nav-open");
+    if (typeof navToggle.blur === "function") {
+      navToggle.blur();
+    }
     handleHeaderResize();
   }
 }
