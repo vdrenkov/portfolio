@@ -582,6 +582,7 @@ section[id]:not(#hero) {
   color: var(--color-text-secondary);
   font-size: 2rem;
   text-align: center;
+  padding: 1.2rem 2.4rem;
 }
 
 .projects-note a {
