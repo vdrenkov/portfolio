@@ -14,9 +14,39 @@ const yearElement = document.getElementById("year");
 let headerHeight = 0;
 let collapsedHeaderHeight = 0;
 
-function getScrollOffset() {
+function getScrollOffset(includeExtra = true) {
   const effectiveHeight = collapsedHeaderHeight || headerHeight;
-  return Math.max(0, Math.round(effectiveHeight + 8));
+  const baseOffset = Math.max(0, Math.round(effectiveHeight));
+  return includeExtra ? baseOffset + 8 : baseOffset;
+}
+
+function getTargetScrollMarginTop(target) {
+  if (!target || typeof globalThis.getComputedStyle !== "function") {
+    return 0;
+  }
+
+  const computedValue = globalThis
+    .getComputedStyle(target)
+    .getPropertyValue("scroll-margin-top")
+    .trim();
+
+  if (!computedValue) return 0;
+
+  const directValue = Number.parseFloat(computedValue);
+  if (!Number.isNaN(directValue)) return directValue;
+
+  const pixelMatches = computedValue.match(/-?\d+(\.\d+)?px/g);
+  if (!pixelMatches) return 0;
+
+  return pixelMatches.reduce(
+    (total, value) => total + Number.parseFloat(value),
+    0
+  );
+}
+
+function getTargetScrollOffset(target) {
+  const marginTop = getTargetScrollMarginTop(target);
+  return marginTop > 0 ? marginTop : getScrollOffset();
 }
 
 function updateHeaderMetrics() {
@@ -29,7 +59,10 @@ function updateHeaderMetrics() {
     "--header-offset",
     `${Math.max(0, Math.round(headerHeight))}px`
   );
-  rootElement.style.setProperty("--scroll-offset", `${getScrollOffset()}px`);
+  rootElement.style.setProperty(
+    "--scroll-offset",
+    `${getScrollOffset(false) + 16}px`
+  );
 }
 
 const handleHeaderResize = () => updateHeaderMetrics();
@@ -59,8 +92,8 @@ function scrollToTargetId(id, smooth = true) {
   const target = document.getElementById(id);
   if (!target) return;
 
-  const y =
-    target.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+  const targetOffset = getTargetScrollOffset(target);
+  const y = target.getBoundingClientRect().top + window.scrollY - targetOffset;
   window.scrollTo({
     top: Math.max(0, y),
     behavior: smooth && !shouldReduceMotion() ? "smooth" : "auto",
