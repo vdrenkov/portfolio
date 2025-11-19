@@ -278,7 +278,12 @@ section[id]:not(#hero) {
   box-shadow: var(--shadow-action);
 }
 
-.nav-links a:focus-visible {
+.nav-links a:focus-visible,
+.home:focus-visible,
+.hero a:focus-visible,
+.project-links .btn:focus-visible,
+.footer .contact-links a:focus-visible,
+.projects-note a:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
   color: var(--color-text-primary);
@@ -818,9 +823,7 @@ section[id]:not(#hero) {
   transition: all 0.2s;
 }
 
-.footer .contact-links a:hover,
-.footer .contact-links a:focus-visible {
-  outline: none;
+.footer .contact-links a:hover {
   border-color: var(--color-accent);
   background: var(--color-action-soft);
   box-shadow: var(--shadow-action);
