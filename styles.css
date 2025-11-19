@@ -1077,8 +1077,8 @@ section[id]:not(#hero) {
   }
 
   .tech-grid {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: max-content;
+    justify-content: center;
   }
 
   .projects-grid {
