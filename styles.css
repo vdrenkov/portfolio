@@ -24,6 +24,7 @@ Bold: 700
   --header-offset: 8rem;
   --scroll-offset: 8rem;
   --panel-spacing: 2vw;
+  --viewport-height: 100vh;
 
   --color-bg-900: #030612;
   --color-bg-800: #0a1322;
@@ -60,6 +61,20 @@ Bold: 700
   --shadow-panel: 0 28px 68px -40px rgba(5, 10, 24, 0.85);
   --shadow-accent-glow: 0 16px 35px -24px var(--color-accent);
 }
+
+@supports (height: 100svh) {
+  :root {
+    --viewport-height: 100svh;
+  }
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --viewport-height: 100dvh;
+  }
+}
+
+/* ------------------   STYLES   ------------------ */
 
 /* General styling */
 *,
@@ -282,7 +297,7 @@ section[id]:not(#hero) {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - var(--header-offset));
+  min-height: calc(var(--viewport-height) - var(--header-offset));
   text-align: center;
 }
 
