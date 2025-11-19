@@ -845,6 +845,26 @@ section[id]:not(#hero) {
 
 /* ------------------   MEDIA QUERIES   ------------------ */
 
+/* Slight upscale for ultrawide/4K */
+
+/* Above 1920px */
+@media (min-width: 120em) {
+  html {
+    /* 11px */
+    font-size: 68.75%;
+  }
+}
+
+/* Above 2560px */
+@media (min-width: 160em) {
+  html {
+    /* 12px */
+    font-size: 75%;
+  }
+}
+
+/* Regular media queries for desktop-first approach */
+
 /* Below 1296px */
 @media (max-width: 81em) {
   html {
