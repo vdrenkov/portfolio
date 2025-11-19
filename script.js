@@ -8,6 +8,7 @@ const navToggle = document.querySelector(".nav-toggle");
 const primaryNav = document.getElementById("primary-nav");
 const inPageLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const homeAnchor = document.querySelector(".home");
+const heroCta = document.querySelector('.hero a[href^="#"]');
 const yearElement = document.getElementById("year");
 
 // Sticky header state & offsets
@@ -107,9 +108,18 @@ for (const inPageLink of inPageLinks) {
 
     event.preventDefault();
     scrollToTargetId(id, true);
-    history.replaceState(null, "", `#${id}`);
 
     if (isMobileNav()) closeMobileNav();
+  });
+}
+
+if (heroCta) {
+  heroCta.addEventListener("click", (event) => {
+    const id = heroCta.getAttribute("href").slice(1);
+    if (!id || !document.getElementById(id)) return;
+
+    event.preventDefault();
+    scrollToTargetId(id, true);
   });
 }
 
@@ -120,7 +130,6 @@ if (homeAnchor) {
       top: 0,
       behavior: shouldReduceMotion() ? "auto" : "smooth",
     });
-    history.replaceState(null, "", "#");
     closeMobileNav();
   });
 }
