@@ -12,14 +12,24 @@ const yearElement = document.getElementById("year");
 
 // Sticky header state & offsets
 let headerHeight = 0;
+let collapsedHeaderHeight = 0;
 
 function getScrollOffset() {
-  return Math.max(0, Math.round(headerHeight + 8));
+  const effectiveHeight = collapsedHeaderHeight || headerHeight;
+  return Math.max(0, Math.round(effectiveHeight + 8));
 }
 
 function updateHeaderMetrics() {
   headerHeight = header ? header.getBoundingClientRect().height : 0;
-  rootElement.style.setProperty("--header-offset", `${getScrollOffset()}px`);
+  if (header && !header.classList.contains("nav-open")) {
+    collapsedHeaderHeight = headerHeight;
+  }
+
+  rootElement.style.setProperty(
+    "--header-offset",
+    `${Math.max(0, Math.round(headerHeight))}px`
+  );
+  rootElement.style.setProperty("--scroll-offset", `${getScrollOffset()}px`);
 }
 
 const handleHeaderResize = () => updateHeaderMetrics();

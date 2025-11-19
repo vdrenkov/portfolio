@@ -22,6 +22,7 @@ Bold: 700
 
   --nav-link-pad-x: 1.6rem;
   --header-offset: 8rem;
+  --scroll-offset: 8rem;
 
   --color-bg-900: #030612;
   --color-bg-800: #0a1322;
@@ -145,7 +146,7 @@ h2 {
 
 /* Offset in-page anchor scrolling for sticky header */
 section[id]:not(#hero) {
-  scroll-margin-top: var(--header-offset, 8rem);
+  scroll-margin-top: var(--scroll-offset, 8rem);
 }
 
 /* Header styling */
@@ -283,7 +284,7 @@ section[id]:not(#hero) {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 89vh;
+  min-height: calc(100vh - var(--header-offset));
   text-align: center;
 }
 
