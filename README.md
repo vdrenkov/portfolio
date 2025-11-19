@@ -13,6 +13,7 @@ The site is a static bundle (HTML, CSS, vanilla JS) optimized for GitHub Pages. 
 - Sticky header that adapts to viewport changes using `ResizeObserver` (with a throttled resize fallback).
 - Each in-page anchor defines its own `scroll-margin-top`, and the JavaScript layer reads that exact computed value before scrolling. This ensures every section (especially contrast panels) lands with a comfortable gap beneath the header instead of relying on a single hard-coded offset.
 - Smooth scrolling respects `prefers-reduced-motion`; when reduced motion is enabled, the page falls back to instant jumps without layout shifts.
+- Hero sizing uses a `--viewport-height` token that prefers modern viewport units (`100svh`/`100dvh`) where supported, keeping the hero centered even on mobile browsers with dynamic browser chrome.
 - Mobile navigation preserves accessibility: the hamburger control keeps `aria-expanded` state in sync, and `.no-js` users see the menu by default.
 
 ### Visual System
@@ -54,6 +55,7 @@ The site is a static bundle (HTML, CSS, vanilla JS) optimized for GitHub Pages. 
 - Navigation uses semantic lists with `aria-label="Primary"` and remains usable without JavaScript thanks to the `.no-js` class that reveals the menu by default.
 - Interactive emoji/SVG icons either include visible labels or are marked `aria-hidden="true"` with accompanying text.
 - Motion-sensitive users benefit from `prefers-reduced-motion` handling in both CSS (`scroll-behavior`) and JS (`scrollTo` logic that switches to instant jumps).
+- Keyboard users get a consistent `:focus-visible` treatment on primary interactive elements (logo, nav links, hero CTA, project buttons, footer icons, and supporting text links).
 - Grids that rely on `subgrid` include `@supports` fallbacks so Safari/older Chromium retain proper alignment.
 
 ## License
