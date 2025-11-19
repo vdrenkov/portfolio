@@ -3,7 +3,7 @@
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
 - Whitespace (px)
-2 / 4 / 8 / 12 / 16 / 18 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+2 / 4 / 8 / 12 / 16 / 18 / 24 / 32 / 48 / 64 / 80 / 96 / 128 / 160 / 192
 
 - Font weights:
 Semi-bold: 600
@@ -13,7 +13,7 @@ Bold: 700
 
 - Border-radius: 12px
 
-- TranslateY: -2px / -4px
+- TranslateY: -1px / -2px / -4px
 */
 
 /* ------------------   TOKENS   ------------------ */
@@ -141,7 +141,7 @@ h2 {
 }
 
 .main-container > div + div {
-  margin-top: 12.8rem;
+  margin-top: 16rem;
 }
 
 /* Offset in-page anchor scrolling for sticky header */
@@ -853,6 +853,10 @@ section[id]:not(#hero) {
     /* 11px */
     font-size: 68.75%;
   }
+
+  .main-container > div + div {
+    margin-top: 19.2rem;
+  }
 }
 
 /* Above 2560px */
@@ -874,6 +878,10 @@ section[id]:not(#hero) {
 
   .main-container {
     margin: 0 10vw;
+  }
+
+  .main-container > div + div {
+    margin-top: 12.8rem;
   }
 
   .project-links .btn {
