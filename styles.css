@@ -18,7 +18,7 @@ Bold: 700
 
 /* ------------------   TOKENS   ------------------ */
 :root {
-  --font-family: "Inter", "sans-serif";
+  --font-family: "Inter", sans-serif;
 
   --nav-link-pad-x: 1.6rem;
   --header-offset: 8rem;
