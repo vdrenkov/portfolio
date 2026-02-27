@@ -206,17 +206,17 @@
       <div class="projects section-panel">
         <section id="projects">
           <h2>Projects</h2>
-          <div class="projects-grid" role="list">
-            <article class="card project-card project-card--1" role="listitem">
+          <ul class="projects-grid">
+            <li class="card project-card project-card--1">
               <h3 class="card-title">Fast React Pizza</h3>
               <p class="card-description">
                 Single-page ordering experience with menu browsing, cart
-                management, order tracking, and data-router actions/loaders,
-                backed by the public React Fast Pizza API.
+                management, order tracking, and optional geolocation-powered
+                address lookup, backed by the public React Fast Pizza API.
               </p>
               <p class="card-tech">
                 <strong>Tech:</strong> React 19 · React Router 7 · Vite 7 ·
-                Redux Toolkit 2 · Tailwind CSS 4
+                Redux Toolkit 2 + React Redux · Tailwind CSS 4 · Vitest 4
               </p>
               <div class="project-links">
                 <a
@@ -234,18 +234,18 @@
                   >Live Demo</a
                 >
               </div>
-            </article>
+            </li>
 
-            <article class="card project-card project-card--2" role="listitem">
+            <li class="card project-card project-card--2">
               <h3 class="card-title">Moviedux</h3>
               <p class="card-description">
                 Interactive movie explorer with searching, filtering, watchlist
-                management, route-safe asset loading, and SEO metadata for
-                sharing and discovery.
+                management, route-safe asset loading, SEO/social metadata, and
+                indexing support via robots and sitemap assets.
               </p>
               <p class="card-tech">
                 <strong>Tech:</strong> React 19 · React Router 7 · Vite 7 ·
-                ESLint 9
+                Vitest 4 + React Testing Library · ESLint 9
               </p>
               <div class="project-links">
                 <a
@@ -263,9 +263,9 @@
                   >Live Demo</a
                 >
               </div>
-            </article>
+            </li>
 
-            <article class="card project-card project-card--3" role="listitem">
+            <li class="card project-card project-card--3">
               <h3 class="card-title">Omnifood</h3>
               <p class="card-description">
                 Responsive marketing site for a fictional food subscription
@@ -292,9 +292,9 @@
                   >Live Demo</a
                 >
               </div>
-            </article>
+            </li>
 
-            <article class="card project-card project-card--4" role="listitem">
+            <li class="card project-card project-card--4">
               <h3 class="card-title">Spring Library Management</h3>
               <p class="card-description">
                 REST backend for library catalog and lending workflows with
@@ -322,9 +322,9 @@
                   Live Demo <span class="sr-only">(currently unavailable)</span>
                 </button>
               </div>
-            </article>
+            </li>
 
-            <article class="card project-card project-card--5" role="listitem">
+            <li class="card project-card project-card--5">
               <h3 class="card-title">World Wise</h3>
               <p class="card-description">
                 Interactive travel-tracking app with protected routes, map-based
@@ -352,8 +352,8 @@
                   Live Demo <span class="sr-only">(currently unavailable)</span>
                 </button>
               </div>
-            </article>
-          </div>
+            </li>
+          </ul>
 
           <p class="projects-note">
             Interested in some of my other projects? Follow my work on
