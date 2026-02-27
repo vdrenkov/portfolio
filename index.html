@@ -206,8 +206,8 @@
       <div class="projects section-panel">
         <section id="projects">
           <h2>Projects</h2>
-          <div class="projects-grid">
-            <div class="card card--1">
+          <div class="projects-grid" role="list">
+            <article class="card project-card project-card--1" role="listitem">
               <h3 class="card-title">Fast React Pizza</h3>
               <p class="card-description">
                 Single-page ordering experience with menu browsing, cart
@@ -234,9 +234,9 @@
                   >Live Demo</a
                 >
               </div>
-            </div>
+            </article>
 
-            <div class="card card--2">
+            <article class="card project-card project-card--2" role="listitem">
               <h3 class="card-title">Moviedux</h3>
               <p class="card-description">
                 Interactive movie explorer with searching, filtering, watchlist
@@ -263,9 +263,9 @@
                   >Live Demo</a
                 >
               </div>
-            </div>
+            </article>
 
-            <div class="card card--3">
+            <article class="card project-card project-card--3" role="listitem">
               <h3 class="card-title">Omnifood</h3>
               <p class="card-description">
                 Responsive marketing site for a fictional food subscription
@@ -292,9 +292,9 @@
                   >Live Demo</a
                 >
               </div>
-            </div>
+            </article>
 
-            <div class="card card--4">
+            <article class="card project-card project-card--4" role="listitem">
               <h3 class="card-title">Spring Library Management</h3>
               <p class="card-description">
                 REST backend for library catalog and lending workflows with
@@ -313,13 +313,18 @@
                   rel="noopener noreferrer"
                   >GitHub</a
                 >
-                <button class="btn btn--action" type="button" disabled>
-                  Live Demo
+                <button
+                  class="btn btn--action"
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                >
+                  Live Demo <span class="sr-only">(currently unavailable)</span>
                 </button>
               </div>
-            </div>
+            </article>
 
-            <div class="card card--5">
+            <article class="card project-card project-card--5" role="listitem">
               <h3 class="card-title">World Wise</h3>
               <p class="card-description">
                 Interactive travel-tracking app with protected routes, map-based
@@ -338,11 +343,16 @@
                   rel="noopener noreferrer"
                   >GitHub</a
                 >
-                <button class="btn btn--action" type="button" disabled>
-                  Live Demo
+                <button
+                  class="btn btn--action"
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                >
+                  Live Demo <span class="sr-only">(currently unavailable)</span>
                 </button>
               </div>
-            </div>
+            </article>
           </div>
 
           <p class="projects-note">

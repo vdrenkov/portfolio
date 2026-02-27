@@ -453,35 +453,35 @@ section[id]:not(#hero) {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, auto) repeat(4, auto);
+  grid-template-rows: repeat(8, auto);
 }
 
-.card--1 {
+.project-card--1 {
   grid-column: 1 / span 2;
   grid-row: 1 / span 4;
 }
 
-.card--2 {
+.project-card--2 {
   grid-column: 3 / span 2;
   grid-row: 1 / span 4;
 }
 
-.card--3 {
+.project-card--3 {
   grid-column: 5 / span 2;
   grid-row: 1 / span 4;
 }
 
-.card--4 {
+.project-card--4 {
   grid-column: 2 / span 2;
   grid-row: 5 / span 4;
 }
 
-.card--5 {
+.project-card--5 {
   grid-column: 4 / span 2;
   grid-row: 5 / span 4;
 }
 
-.projects-grid .card {
+.project-card {
   display: grid;
   grid-template-rows: auto auto auto auto;
   grid-row: span 4;
@@ -493,7 +493,7 @@ section[id]:not(#hero) {
 }
 
 @supports (grid-template-rows: subgrid) {
-  .projects-grid .card {
+  .project-card {
     grid-template-rows: subgrid;
   }
 }
@@ -528,6 +528,7 @@ section[id]:not(#hero) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 11.5rem;
   padding: 1.2rem 1.6rem;
   border-radius: 999px;
   border: 1px solid var(--color-action-border);
@@ -960,17 +961,17 @@ section[id]:not(#hero) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .card--1,
-  .card--3 {
+  .project-card--1,
+  .project-card--3 {
     grid-column: 1 / span 2;
   }
 
-  .card--2,
-  .card--4 {
+  .project-card--2,
+  .project-card--4 {
     grid-column: 3 / span 2;
   }
 
-  .card--5 {
+  .project-card--5 {
     grid-column: 2 / span 2;
   }
 
@@ -1101,11 +1102,11 @@ section[id]:not(#hero) {
     grid-template-columns: 1fr;
   }
 
-  .card--1,
-  .card--2,
-  .card--3,
-  .card--4,
-  .card--5 {
+  .project-card--1,
+  .project-card--2,
+  .project-card--3,
+  .project-card--4,
+  .project-card--5 {
     grid-column: 1;
   }
 
