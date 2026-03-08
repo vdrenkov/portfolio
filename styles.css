@@ -473,12 +473,17 @@ section[id]:not(#hero) {
 }
 
 .project-card--4 {
-  grid-column: 2 / span 2;
+  grid-column: 1 / span 2;
   grid-row: 5 / span 4;
 }
 
 .project-card--5 {
-  grid-column: 4 / span 2;
+  grid-column: 3 / span 2;
+  grid-row: 5 / span 4;
+}
+
+.project-card--6 {
+  grid-column: 5 / span 2;
   grid-row: 5 / span 4;
 }
 
@@ -963,17 +968,30 @@ section[id]:not(#hero) {
   }
 
   .project-card--1,
-  .project-card--3 {
+  .project-card--3,
+  .project-card--5 {
     grid-column: 1 / span 2;
   }
 
   .project-card--2,
-  .project-card--4 {
+  .project-card--4,
+  .project-card--6 {
     grid-column: 3 / span 2;
   }
 
-  .project-card--5 {
-    grid-column: 2 / span 2;
+  .project-card--1,
+  .project-card--2 {
+    grid-row: 1 / span 4;
+  }
+
+  .project-card--3,
+  .project-card--4 {
+    grid-row: 5 / span 4;
+  }
+
+  .project-card--5,
+  .project-card--6 {
+    grid-row: 9 / span 4;
   }
 
   .tech-grid {
@@ -1107,7 +1125,8 @@ section[id]:not(#hero) {
   .project-card--2,
   .project-card--3,
   .project-card--4,
-  .project-card--5 {
+  .project-card--5,
+  .project-card--6 {
     grid-column: 1;
   }
 
