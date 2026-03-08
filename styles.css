@@ -18,7 +18,8 @@ Bold: 700
 
 /* ------------------   TOKENS   ------------------ */
 :root {
-  --font-family: "Inter", sans-serif;
+  --font-family: "Source Sans 3", sans-serif;
+  --font-family-heading: "Space Grotesk", sans-serif;
 
   --nav-link-pad-x: 1.6rem;
   --header-offset: 8rem;
@@ -84,6 +85,15 @@ Bold: 700
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
+}
+
+h1,
+h2,
+h3,
+.logo,
+.hero a,
+.project-links .btn {
+  font-family: var(--font-family-heading);
 }
 
 html {
