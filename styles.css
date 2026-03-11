@@ -1230,6 +1230,12 @@ section[id]:not(#hero) {
   .project-card--5,
   .project-card--6 {
     grid-column: 1;
+    grid-row: auto;
+  }
+
+  .project-card {
+    grid-template-rows: auto auto auto auto;
+    row-gap: 2.4rem;
   }
 
   .experience-row {
