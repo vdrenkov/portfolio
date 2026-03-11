@@ -4,7 +4,7 @@ Source code for [vdrenkov.dev](https://vdrenkov.dev), a handcrafted single-page 
 
 ## Overview
 
-The site is a static bundle (HTML, CSS, vanilla JS) optimized for GitHub Pages. It focuses on a semantic content hierarchy, fast navigation, accessible interactions with or without JavaScript, and polished visuals driven entirely by modern CSS features.
+The site is a static bundle (HTML, CSS, vanilla JS) built for straightforward static hosting. It focuses on semantic content hierarchy, fast navigation, accessible interactions with or without JavaScript, and a polished visual system driven entirely by modern CSS features.
 
 ## Features
 
@@ -18,10 +18,12 @@ The site is a static bundle (HTML, CSS, vanilla JS) optimized for GitHub Pages. 
 
 ### Visual System
 
-- All content sections (projects, experience, skills, education) reuse the same “contrast panel” treatment for consistency.
-- CSS custom properties govern spacing, typography, elevation, and gradients; swapping a token propagates through the entire layout.
-- Responsive grids scale from large desktop layouts down to single-column stacks with minimal overrides.
-- Subgrid is used where available for the education cards, with safe fallbacks when the browser lacks support.
+- All major content sections (about, tech stack, projects, experience, skills, education) reuse the same contrast-panel treatment for consistency.
+- CSS custom properties govern spacing, typography, colors, elevation, and gradients; swapping a token propagates through the layout.
+- A two-font system (`Source Sans 3` for body copy, `Space Grotesk` for headings and actions) gives the page a clearer visual hierarchy.
+- Cards use a shared premium-style treatment with softened borders, deeper radius, and restrained hover lift.
+- Responsive grids scale from large desktop layouts down to single-column stacks with breakpoint-specific adjustments for projects, experience, skills, and education.
+- Subgrid is used where available for aligned card layouts, with safe fallbacks when the browser lacks support.
 
 ### Meta & Performance
 
@@ -43,8 +45,8 @@ The site is a static bundle (HTML, CSS, vanilla JS) optimized for GitHub Pages. 
 ├── styles.css          # Tokens, layouts, components, and media queries
 ├── script.js           # Sticky header logic, smooth scroll, helpers
 ├── public/
-│   ├── favicon.ico
-│   └── dropdown-menu-icon.svg
+│   ├── icons/          # Favicons and navigation icon assets
+│   └── images/         # Social preview and other shared images
 ├── CNAME               # Custom domain configuration for GitHub Pages
 ├── README.md
 └── .gitignore
