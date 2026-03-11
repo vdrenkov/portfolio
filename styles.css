@@ -640,11 +640,20 @@ section[id]:not(#hero) {
 }
 
 .projects-note a {
+  color: var(--color-accent);
   font-weight: 600;
   text-decoration: none;
 }
 
-.main-container p a:not(.btn),
+.projects-note a:not(.btn) {
+  color: var(--color-accent);
+}
+
+.projects-note a:not(.btn)::after {
+  background: var(--color-accent);
+}
+
+.main-container p:not(.projects-note) a:not(.btn),
 .main-container li a:not(.btn),
 .footer p a,
 .footer address:not(.contact-links) a {
@@ -653,7 +662,7 @@ section[id]:not(#hero) {
   position: relative;
 }
 
-.main-container p a:not(.btn)::after,
+.main-container p:not(.projects-note) a:not(.btn)::after,
 .main-container li a:not(.btn)::after,
 .footer p a::after,
 .footer address:not(.contact-links) a::after {
@@ -670,7 +679,7 @@ section[id]:not(#hero) {
   opacity: 0.75;
 }
 
-.main-container p a:not(.btn):hover::after,
+.main-container p:not(.projects-note) a:not(.btn):hover::after,
 .main-container li a:not(.btn):hover::after,
 .footer p a:hover::after,
 .footer address:not(.contact-links) a:hover::after {
