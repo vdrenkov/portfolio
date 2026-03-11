@@ -41,7 +41,7 @@ function getTargetScrollMarginTop(target) {
 
   return pixelMatches.reduce(
     (total, value) => total + Number.parseFloat(value),
-    0
+    0,
   );
 }
 
@@ -58,11 +58,11 @@ function updateHeaderMetrics() {
 
   rootElement.style.setProperty(
     "--header-offset",
-    `${Math.max(0, Math.round(headerHeight))}px`
+    `${Math.max(0, Math.round(headerHeight))}px`,
   );
   rootElement.style.setProperty(
     "--scroll-offset",
-    `${getScrollOffset(false) + 16}px`
+    `${getScrollOffset(false) + 16}px`,
   );
 }
 
@@ -183,6 +183,47 @@ function equalizeSkillHeadings() {
 }
 window.addEventListener("load", equalizeSkillHeadings);
 window.addEventListener("resize", equalizeSkillHeadings);
+
+// Experience card heading/meta equalizer
+function equalizeExperienceCardMeta() {
+  const experienceCards = document.querySelectorAll(
+    ".experience-row .card:not(.experience-card--compact)",
+  );
+  if (!experienceCards.length) return;
+
+  const headings = [];
+  const metaBlocks = [];
+
+  for (const card of experienceCards) {
+    const heading = card.querySelector("h3");
+    const meta = card.querySelector("p");
+    if (heading) headings.push(heading);
+    if (meta) metaBlocks.push(meta);
+  }
+
+  for (const heading of headings) heading.style.minHeight = "";
+  for (const meta of metaBlocks) meta.style.minHeight = "";
+
+  let maxHeadingHeight = 0;
+  for (const heading of headings) {
+    maxHeadingHeight = Math.max(maxHeadingHeight, heading.offsetHeight);
+  }
+
+  let maxMetaHeight = 0;
+  for (const meta of metaBlocks) {
+    maxMetaHeight = Math.max(maxMetaHeight, meta.offsetHeight);
+  }
+
+  for (const heading of headings) {
+    heading.style.minHeight = `${maxHeadingHeight}px`;
+  }
+
+  for (const meta of metaBlocks) {
+    meta.style.minHeight = `${maxMetaHeight}px`;
+  }
+}
+window.addEventListener("load", equalizeExperienceCardMeta);
+window.addEventListener("resize", equalizeExperienceCardMeta);
 
 // Footer year
 if (yearElement) {
