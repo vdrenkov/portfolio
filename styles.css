@@ -1221,6 +1221,8 @@ section[id]:not(#hero) {
 
   .projects-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
   }
 
   .project-card--1,
@@ -1234,6 +1236,7 @@ section[id]:not(#hero) {
   }
 
   .project-card {
+    grid-row: auto;
     grid-template-rows: auto auto auto auto;
     row-gap: 2.4rem;
   }
