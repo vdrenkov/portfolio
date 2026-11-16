@@ -1,64 +1,61 @@
 # Valentin Drenkov — Developer Portfolio
 
-Source code for [vdrenkov.dev](https://vdrenkov.dev), a handcrafted single-page portfolio that highlights projects, experience, and research interests across Java, Spring, JavaScript, React, and blockchain.
+Source code for [vdrenkov.dev](https://vdrenkov.dev), a single-page portfolio highlighting projects, experience and research interests across Java, Spring Boot, TypeScript, React and blockchain.
 
 ## Overview
 
-The site is a static bundle (HTML, CSS, vanilla JS) built for straightforward static hosting. It focuses on semantic content hierarchy, fast navigation, accessible interactions with or without JavaScript, and a polished visual system driven entirely by modern CSS features.
+The site is a static bundle of HTML, CSS and vanilla JavaScript. It combines semantic content, accessible navigation and responsive layouts with a consistent visual system.
 
 ## Features
 
 ### Navigation & Scrolling
 
-- Sticky header that adapts to viewport changes using `ResizeObserver` (with a throttled resize fallback).
-- Section links scroll and focus their destination without changing the URL; CSS scroll margins keep headings clear of the sticky header.
-- Smooth scrolling respects `prefers-reduced-motion`; when reduced motion is enabled, the page falls back to instant jumps without layout shifts.
-- Hero sizing uses a `--viewport-height` token that prefers modern viewport units (`100svh`/`100dvh`) where supported, keeping the hero centered even on mobile browsers with dynamic browser chrome.
-- Mobile navigation supports Escape, keyboard focus across breakpoints and navigation without JavaScript.
+- Sticky header with native section links and CSS offsets that keep headings visible.
+- Section links update the URL fragment and browser history; manual scrolling leaves the URL unchanged.
+- Smooth scrolling respects reduced-motion preferences.
+- Hero height adapts to the viewport, including mobile browser chrome.
+- Mobile navigation supports Escape and keyboard focus across breakpoints.
 
 ### Visual System
 
-- All major content sections (about, tech stack, projects, experience, skills, education) reuse the same contrast-panel treatment for consistency.
-- CSS custom properties govern spacing, typography, colors, elevation, and gradients; swapping a token propagates through the layout.
-- A two-font system (`Source Sans 3` for body copy, `Space Grotesk` for headings and actions) gives the page a clearer visual hierarchy.
-- Cards use a shared premium-style treatment with softened borders, deeper radius, and restrained hover lift.
-- Responsive grids scale from large desktop layouts down to single-column stacks with breakpoint-specific adjustments for projects, experience, skills, and education.
-- Subgrid is used where available for aligned card layouts, with safe fallbacks when the browser lacks support.
+- Distinct section panels share a dark palette with clear contrast.
+- CSS custom properties define colors, typography, spacing and focus states.
+- Source Sans 3 and Space Grotesk distinguish body text from headings and actions.
+- Responsive Grid layouts adapt cards to desktop, tablet and mobile screens.
+- Tech Stack icons and restrained hover effects complement the content.
 
 ### Meta & Performance
 
-- Comprehensive SEO/social metadata (description, canonical URL, Open Graph, Twitter, image alt text) for rich previews.
-- Single CSS/JS payloads plus preconnect hints keep requests minimal; icons rely on inline SVGs or emoji to avoid extra downloads.
+- Search and social metadata include a canonical URL, Open Graph and Twitter previews.
+- One stylesheet and a small script keep the site lightweight; most icons use inline SVG or emoji.
 
 ## Tech Stack
 
-- **Markup:** Semantic HTML5 with landmark elements and accessible navigation labels.
-- **Styling:** Single `styles.css` file using CSS custom properties, Grid, Flexbox, subgrid fallbacks, and responsive media queries.
-- **Behavior:** `script.js` manages sticky-header measurements, section focus, card heading alignment and mobile navigation.
-- **Tooling:** No build step required; the repo deploys directly to GitHub Pages.
+- **Markup:** Semantic HTML5 with landmarks and accessible labels.
+- **Styling:** CSS custom properties, Grid, Flexbox and responsive media queries.
+- **Behavior:** Vanilla JavaScript for the mobile menu, responsive keyboard focus and footer year.
+- **Tooling:** No build step or package installation required.
 
 ## Project Structure
 
 ```text
 .
 ├── index.html          # Page content and metadata
-├── styles.css          # Tokens, layouts, components, and media queries
-├── script.js           # Header measurements, focus and mobile navigation
+├── styles.css          # Layouts, components and responsive styles
+├── script.js           # Mobile navigation and footer year
 ├── public/
-│   ├── icons/          # Favicons and navigation icon assets
-│   └── images/         # Social preview and other shared images
-├── CNAME               # Custom domain configuration for GitHub Pages
+│   ├── icons/          # Favicons and navigation assets
+│   └── images/         # Social preview and shared images
+├── CNAME               # Custom domain configuration
 ├── README.md
 └── .gitignore
 ```
 
 ## Accessibility & UX Notes
 
-- Navigation uses semantic lists with `aria-label="Primary"` and remains usable without JavaScript thanks to the `.no-js` class that reveals the menu by default.
-- Interactive emoji/SVG icons either include visible labels or are marked `aria-hidden="true"` with accompanying text.
-- Motion-sensitive users benefit from CSS `prefers-reduced-motion`; section scrolling is smooth only when motion is allowed.
-- Keyboard users get a consistent `:focus-visible` treatment on primary interactive elements (logo, nav links, hero CTA, project buttons, footer icons, and supporting text links).
-- Grids that rely on `subgrid` include `@supports` fallbacks so Safari/older Chromium retain proper alignment.
+- Native links remain usable without JavaScript; the mobile menu stays visible when scripting is unavailable.
+- Icons include accessible labels or are hidden from assistive technology when decorative.
+- Visible focus indicators cover navigation, menu controls, project buttons and contact links.
 
 ## License
 

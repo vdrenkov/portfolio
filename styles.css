@@ -23,7 +23,6 @@ Bold: 700
 
   --nav-link-pad-x: 1.6rem;
   --header-offset: 8rem;
-  --scroll-offset: 8rem;
   --panel-spacing: 2vw;
   --viewport-height: 100vh;
 
@@ -190,7 +189,7 @@ h2 {
 /* Offset in-page anchor scrolling for sticky header */
 section[id]:not(#hero) {
   scroll-margin-top: calc(
-    var(--scroll-offset, 8rem) + var(--panel-spacing, 2.4rem)
+    var(--header-offset) + 1.6rem + var(--panel-spacing)
   );
 }
 
@@ -446,8 +445,8 @@ section[tabindex="-1"]:focus-visible {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 0.8rem;
 }
 
@@ -495,45 +494,13 @@ section[tabindex="-1"]:focus-visible {
 .projects-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(8, auto);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   list-style: none;
-}
-
-.project-card--1 {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 4;
-}
-
-.project-card--2 {
-  grid-column: 3 / span 2;
-  grid-row: 1 / span 4;
-}
-
-.project-card--3 {
-  grid-column: 5 / span 2;
-  grid-row: 1 / span 4;
-}
-
-.project-card--4 {
-  grid-column: 1 / span 2;
-  grid-row: 5 / span 4;
-}
-
-.project-card--5 {
-  grid-column: 3 / span 2;
-  grid-row: 5 / span 4;
-}
-
-.project-card--6 {
-  grid-column: 5 / span 2;
-  grid-row: 5 / span 4;
 }
 
 .project-card {
   display: grid;
-  grid-template-rows: auto auto auto auto;
-  grid-row: span 4;
+  grid-template-rows: auto 1fr auto auto;
   row-gap: 3rem;
   padding: 3rem 2.4rem;
   border: 1px solid var(--color-border);
@@ -541,35 +508,11 @@ section[tabindex="-1"]:focus-visible {
   background: var(--color-surface-strong);
 }
 
-@supports (grid-template-rows: subgrid) {
-  .project-card {
-    grid-template-rows: subgrid;
-  }
-}
-
-#projects > .projects-grid {
-  margin-bottom: 0;
-}
-
-.card-title {
-  grid-row: 1;
-  margin: 0;
-}
-
-.card-description {
-  grid-row: 2;
-}
-
-.card-tech {
-  grid-row: 3;
-}
-
 .project-links {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  grid-row: 4;
 }
 
 .project-links .btn {
@@ -730,6 +673,7 @@ section[tabindex="-1"]:focus-visible {
 .card ul {
   list-style: none;
   display: grid;
+  align-content: start;
   gap: 0.4rem;
   margin-top: 1.2rem;
 }
@@ -757,25 +701,9 @@ section[tabindex="-1"]:focus-visible {
 
 .experience-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   width: 100%;
-}
-
-.experience-card--zuhlke {
-  grid-column: 2 / 4;
-  grid-row: 1;
-}
-
-.experience-card--dxc {
-  grid-column: 1 / 3;
-  grid-row: 2;
-}
-
-.experience-card--scalefocus {
-  grid-column: 3 / 5;
-  grid-row: 2;
 }
 
 .experience-row .card {
@@ -787,18 +715,15 @@ section[tabindex="-1"]:focus-visible {
 }
 
 .experience-row .card h3 {
-  grid-row: 1;
   font-size: 3.6rem;
 }
 
 .experience-row .card p {
   color: var(--color-text-muted);
   text-align: center;
-  grid-row: 2;
 }
 
 .experience-row .card ul {
-  grid-row: 3;
   margin-top: 0;
 }
 
@@ -811,7 +736,10 @@ section[tabindex="-1"]:focus-visible {
   margin-bottom: 1.2rem;
 }
 
-.experience-card--compact {
+.experience-row .experience-card--compact {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - 2rem) / 2);
   grid-template-rows: auto auto;
   row-gap: 1.4rem;
 }
@@ -824,8 +752,7 @@ section[tabindex="-1"]:focus-visible {
 /* Skills section styling */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
 }
 
@@ -858,41 +785,29 @@ section[tabindex="-1"]:focus-visible {
 /* Education section styling */
 .education-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
 }
 
 .education-grid .card {
-  height: auto;
   display: grid;
-  grid-template-rows: auto auto auto;
-  grid-row: 1 / span 3;
+  grid-template-rows: auto 1fr auto;
   row-gap: 3rem;
 }
 
-@supports (grid-template-rows: subgrid) {
-  .education-grid .card {
-    grid-template-rows: subgrid;
-  }
-}
-
 .education-grid .card h3 {
-  grid-row: 1;
   font-size: 2.4rem;
   text-align: center;
   margin: 0;
 }
 
-.education-grid .card p:nth-of-type(1) {
-  grid-row: 2;
+.education-grid .education-degree {
   font-size: 2rem;
   text-align: center;
   margin: 0;
 }
 
-.education-grid .card p:nth-of-type(2) {
-  grid-row: 3;
+.education-grid .education-meta {
   font-size: 1.8rem;
   text-align: center;
   color: var(--color-text-muted);
@@ -1070,70 +985,11 @@ section[tabindex="-1"]:focus-visible {
     padding: 0.6rem 1.2rem;
   }
 
-  /* Switch from 3 columns to 2 */
-  .projects-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .project-card--1,
-  .project-card--3,
-  .project-card--5 {
-    grid-column: 1 / span 2;
-  }
-
-  .project-card--2,
-  .project-card--4,
-  .project-card--6 {
-    grid-column: 3 / span 2;
-  }
-
-  .project-card--1,
-  .project-card--2 {
-    grid-row: 1 / span 4;
-  }
-
-  .project-card--3,
-  .project-card--4 {
-    grid-row: 5 / span 4;
-  }
-
-  .project-card--5,
-  .project-card--6 {
-    grid-row: 9 / span 4;
-  }
-
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto);
-  }
-
+  .projects-grid,
+  .tech-grid,
+  .skills-grid,
   .education-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, auto);
-  }
-
-  .education-grid .card {
-    grid-template-rows: auto auto auto;
-    grid-row: auto;
-  }
-
-  .education-grid .card.phd {
-    grid-column: 2 / span 2;
-  }
-
-  .education-grid .card.msc {
-    grid-column: 1 / span 2;
-    grid-row: 2;
-  }
-
-  .education-grid .card.bsc {
-    grid-column: 3 / span 2;
-    grid-row: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1201,6 +1057,10 @@ section[tabindex="-1"]:focus-visible {
     display: none;
   }
 
+  .no-js .main-header {
+    position: static;
+  }
+
   .main-header.nav-open .nav-links {
     display: flex;
   }
@@ -1230,70 +1090,18 @@ section[tabindex="-1"]:focus-visible {
     justify-content: center;
   }
 
-  .projects-grid {
+  .projects-grid,
+  .experience-row,
+  .skills-grid,
+  .education-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: none;
-    grid-auto-rows: auto;
-  }
-
-  .project-card--1,
-  .project-card--2,
-  .project-card--3,
-  .project-card--4,
-  .project-card--5,
-  .project-card--6 {
-    grid-column: 1;
-    grid-row: auto;
   }
 
   .project-card {
-    grid-row: auto;
-    grid-template-rows: auto auto auto auto;
     row-gap: 2.4rem;
   }
 
-  .experience-row {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-card--zuhlke,
-  .experience-card--dxc,
-  .experience-card--scalefocus {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(6, auto);
-  }
-
-  .education-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, auto);
-  }
-
-  .education-grid .card {
-    grid-template-rows: auto auto auto;
-    grid-row: auto;
-    grid-column: 1 / -1;
-  }
-
-  .education-grid .card.phd {
-    order: 1;
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-
-  .education-grid .card.msc {
-    order: 2;
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-
-  .education-grid .card.bsc {
-    order: 3;
-    grid-column: 1 / -1;
-    grid-row: auto;
+  .experience-row .experience-card--compact {
+    width: 100%;
   }
 }
