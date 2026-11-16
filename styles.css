@@ -194,6 +194,12 @@ section[id]:not(#hero) {
   );
 }
 
+.hero:focus-visible,
+section[tabindex="-1"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 0.8rem;
+}
+
 /* Header styling */
 .main-header {
   position: sticky;
@@ -283,6 +289,7 @@ section[id]:not(#hero) {
 
 .nav-links a {
   display: inline-flex;
+  color: var(--color-text-secondary);
   align-items: center;
   justify-content: center;
   padding: 0.8rem var(--nav-link-pad-x);
@@ -311,6 +318,7 @@ section[id]:not(#hero) {
 }
 
 .nav-links a:focus-visible,
+.nav-toggle:focus-visible,
 .home:focus-visible,
 .hero a:focus-visible,
 .project-links .btn:focus-visible,
@@ -336,6 +344,7 @@ section[id]:not(#hero) {
   justify-content: center;
   min-height: calc(var(--viewport-height) - var(--header-offset));
   text-align: center;
+  scroll-margin-top: var(--header-offset);
 }
 
 .hero section {
@@ -355,7 +364,8 @@ section[id]:not(#hero) {
   margin-bottom: 8rem;
 }
 
-.hero a {
+.hero a,
+.hero a:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -367,7 +377,7 @@ section[id]:not(#hero) {
   text-decoration: none;
   letter-spacing: 0.015em;
 
-  color: var(--color-text-primary);
+  color: var(--color-on-accent);
   border-color: var(--color-action-border);
   background: linear-gradient(
     135deg,
@@ -594,8 +604,9 @@ section[id]:not(#hero) {
   flex-shrink: 0;
 }
 
-.project-links .btn--action {
-  color: var(--color-text-primary);
+.project-links .btn--action,
+.project-links .btn--action:focus-visible {
+  color: var(--color-on-accent);
   border-color: var(--color-action-border);
   background: linear-gradient(
     135deg,
@@ -1025,11 +1036,6 @@ section[id]:not(#hero) {
 
 /* Below 992px */
 @media (max-width: 62em) {
-  html {
-    /* 7px */
-    font-size: 43.75%;
-  }
-
   .main-container {
     margin: 0 6vw;
   }
@@ -1206,12 +1212,17 @@ section[id]:not(#hero) {
 
   .nav-links a {
     width: 100%;
+    font-size: 2rem;
     padding: 0.8rem;
     justify-content: flex-start;
   }
 
   .nav-links li:last-child {
     margin-right: 0;
+  }
+
+  .project-links .btn {
+    font-size: 2rem;
   }
 
   .tech-grid {

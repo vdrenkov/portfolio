@@ -11,10 +11,10 @@ The site is a static bundle (HTML, CSS, vanilla JS) built for straightforward st
 ### Navigation & Scrolling
 
 - Sticky header that adapts to viewport changes using `ResizeObserver` (with a throttled resize fallback).
-- Each in-page anchor defines its own `scroll-margin-top`, and the JavaScript layer reads that exact computed value before scrolling. This ensures every section (especially contrast panels) lands with a comfortable gap beneath the header instead of relying on a single hard-coded offset.
+- Section links scroll and focus their destination without changing the URL; CSS scroll margins keep headings clear of the sticky header.
 - Smooth scrolling respects `prefers-reduced-motion`; when reduced motion is enabled, the page falls back to instant jumps without layout shifts.
 - Hero sizing uses a `--viewport-height` token that prefers modern viewport units (`100svh`/`100dvh`) where supported, keeping the hero centered even on mobile browsers with dynamic browser chrome.
-- Mobile navigation preserves accessibility: the hamburger control keeps `aria-expanded` state in sync, and `.no-js` users see the menu by default.
+- Mobile navigation supports Escape, keyboard focus across breakpoints and navigation without JavaScript.
 
 ### Visual System
 
@@ -34,7 +34,7 @@ The site is a static bundle (HTML, CSS, vanilla JS) built for straightforward st
 
 - **Markup:** Semantic HTML5 with landmark elements and accessible navigation labels.
 - **Styling:** Single `styles.css` file using CSS custom properties, Grid, Flexbox, subgrid fallbacks, and responsive media queries.
-- **Behavior:** `script.js` manages sticky-header measurements, computed scroll offsets per target, reduced-motion handling, equalized card headers, and mobile nav toggling.
+- **Behavior:** `script.js` manages sticky-header measurements, section focus, card heading alignment and mobile navigation.
 - **Tooling:** No build step required; the repo deploys directly to GitHub Pages.
 
 ## Project Structure
@@ -43,7 +43,7 @@ The site is a static bundle (HTML, CSS, vanilla JS) built for straightforward st
 .
 ├── index.html          # Page content and metadata
 ├── styles.css          # Tokens, layouts, components, and media queries
-├── script.js           # Sticky header logic, smooth scroll, helpers
+├── script.js           # Header measurements, focus and mobile navigation
 ├── public/
 │   ├── icons/          # Favicons and navigation icon assets
 │   └── images/         # Social preview and other shared images
@@ -56,7 +56,7 @@ The site is a static bundle (HTML, CSS, vanilla JS) built for straightforward st
 
 - Navigation uses semantic lists with `aria-label="Primary"` and remains usable without JavaScript thanks to the `.no-js` class that reveals the menu by default.
 - Interactive emoji/SVG icons either include visible labels or are marked `aria-hidden="true"` with accompanying text.
-- Motion-sensitive users benefit from `prefers-reduced-motion` handling in both CSS (`scroll-behavior`) and JS (`scrollTo` logic that switches to instant jumps).
+- Motion-sensitive users benefit from CSS `prefers-reduced-motion`; section scrolling is smooth only when motion is allowed.
 - Keyboard users get a consistent `:focus-visible` treatment on primary interactive elements (logo, nav links, hero CTA, project buttons, footer icons, and supporting text links).
 - Grids that rely on `subgrid` include `@supports` fallbacks so Safari/older Chromium retain proper alignment.
 
