@@ -36,6 +36,7 @@ Bold: 700
   --color-text-primary: #eef2ff;
   --color-text-secondary: rgba(224, 232, 255, 0.78);
   --color-text-muted: rgba(189, 200, 244, 0.65);
+  --color-text-accent: #8b8dff;
   --color-on-accent: #0b1022;
 
   --color-accent: #6366f1;
@@ -594,17 +595,9 @@ section[tabindex="-1"]:focus-visible {
 }
 
 .projects-note a {
-  color: var(--color-accent);
+  color: var(--color-text-accent);
   font-weight: 600;
   text-decoration: none;
-}
-
-.projects-note a:not(.btn) {
-  color: var(--color-accent);
-}
-
-.projects-note a:not(.btn)::after {
-  background: var(--color-accent);
 }
 
 .main-container p:not(.projects-note) a:not(.btn),
@@ -745,7 +738,7 @@ section[tabindex="-1"]:focus-visible {
 }
 
 .in-progress {
-  color: var(--color-accent);
+  color: var(--color-text-accent);
   font-weight: 600;
 }
 
