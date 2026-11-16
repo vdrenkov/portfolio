@@ -24,8 +24,27 @@ if (navToggle && primaryNav && header) {
   });
 
   for (const inPageLink of inPageLinks) {
-    inPageLink.addEventListener("click", () => {
+    inPageLink.addEventListener("click", (event) => {
+      if (
+        event.button !== 0 ||
+        event.altKey ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey
+      ) {
+        return;
+      }
+
+      const target = document.getElementById(inPageLink.hash.slice(1));
+
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
       if (mobileNavQuery.matches) closeMobileNav();
+      target.scrollIntoView({ block: "start" });
+      target.focus({ preventScroll: true });
     });
   }
 

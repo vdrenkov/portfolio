@@ -10,8 +10,8 @@ The site is a static bundle of HTML, CSS and vanilla JavaScript. It combines sem
 
 ### Navigation & Scrolling
 
-- Sticky header with native section links and CSS offsets that keep headings visible.
-- Section links update the URL fragment and browser history; manual scrolling leaves the URL unchanged.
+- Sticky header with section links and CSS offsets that keep headings visible.
+- Section links scroll and move keyboard focus without changing the URL or browser history.
 - Smooth scrolling respects reduced-motion preferences.
 - Hero height adapts to the viewport, including mobile browser chrome.
 - Mobile navigation supports Escape and keyboard focus across breakpoints.
@@ -33,7 +33,7 @@ The site is a static bundle of HTML, CSS and vanilla JavaScript. It combines sem
 
 - **Markup:** Semantic HTML5 with landmarks and accessible labels.
 - **Styling:** CSS custom properties, Grid, Flexbox and responsive media queries.
-- **Behavior:** Vanilla JavaScript for the mobile menu, responsive keyboard focus and footer year.
+- **Behavior:** Vanilla JavaScript for section navigation, the mobile menu, responsive keyboard focus and footer year.
 - **Tooling:** No build step or package installation required.
 
 ## Project Structure
@@ -42,7 +42,7 @@ The site is a static bundle of HTML, CSS and vanilla JavaScript. It combines sem
 .
 ├── index.html          # Page content and metadata
 ├── styles.css          # Layouts, components and responsive styles
-├── script.js           # Mobile navigation and footer year
+├── script.js           # Section navigation, mobile menu and footer year
 ├── public/
 │   ├── icons/          # Favicons and navigation assets
 │   └── images/         # Social preview and shared images
